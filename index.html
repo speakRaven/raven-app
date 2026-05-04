@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0"/>
+<meta name="mobile-web-app-capable" content="yes"/>
+<meta name="apple-mobile-web-app-capable" content="yes"/>
+<meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+<meta name="apple-mobile-web-app-title" content="RAVEN"/>
+<title>RAVEN</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html{height:100%}
+body{height:100%;background:#000;display:flex;justify-content:center;align-items:flex-start;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif}
+.app{width:100%;max-width:430px;height:100vh;height:100dvh;background:#0a0a0a;display:flex;flex-direction:column;position:relative;overflow:hidden}
+.scr{position:absolute;inset:0;display:flex;flex-direction:column;background:#0a0a0a;overflow-y:auto}
+.scr.off{display:none}
+.flag-area{position:absolute;top:14px;right:14px;z-index:99}
+.fb{background:#1a1a2e;border:1.5px solid #7B5FCC;border-radius:8px;cursor:pointer;padding:5px 10px;font-size:11px;color:#9B6FFF;font-weight:600;display:flex;align-items:center;gap:5px}
+.fm{display:none;position:absolute;top:36px;right:0;background:#111;border:1px solid #7B5FCC44;border-radius:10px;overflow:hidden;min-width:152px;box-shadow:0 4px 24px #00000099}
+.fm.open{display:block}
+.fo{display:flex;align-items:center;gap:9px;padding:10px 14px;font-size:13px;color:#888;cursor:pointer;border:none;width:100%;background:transparent;text-align:left}
+.fo:hover{background:#1e1e1e;color:#fff}
+.fo.a{color:#fff;background:#1a1428}
+.logo-wrap{display:flex;flex-direction:column;align-items:center;gap:7px;padding:28px 0 14px}
+.logo-img{width:64px;height:64px;object-fit:contain}
+.logo-svg{width:48px;height:58px}
+.wm{font-size:22px;font-weight:300;letter-spacing:7px;color:#fff;text-transform:uppercase}
+.tg{font-size:11px;color:#444;letter-spacing:1px}
+.hdiv{height:.5px;background:#1e1e1e;margin:0 22px}
+.slbl{font-size:11px;letter-spacing:2px;color:#555;text-transform:uppercase;font-weight:600}
+.lang-list{padding:14px 20px 0;flex:1}
+.lr{display:flex;align-items:center;gap:13px;padding:13px 15px;border:.5px solid #1e1e1e;border-radius:13px;cursor:pointer;background:#0f0f0f;margin-bottom:9px;transition:all .15s}
+.lr:hover{border-color:#444}
+.lr.sel{border-color:#7B5FCC;background:#0f0b1a}
+.lf{font-size:26px;flex-shrink:0}
+.ln{font-size:17px;font-weight:600;letter-spacing:1px;color:#e0e0e0;text-transform:uppercase}
+.ls{font-size:11px;color:#444;margin-top:2px}
+.lr.sel .ls{color:#9B6FFF}
+.lck{width:19px;height:19px;border-radius:50%;border:1.5px solid #2a2a2a;flex-shrink:0;margin-left:auto;transition:all .2s}
+.lr.sel .lck{background:#7B5FCC;border-color:#7B5FCC}
+.bot{padding:14px 20px 26px;flex-shrink:0}
+.pill{width:100%;padding:14px;border-radius:50px;border:none;font-size:15px;font-weight:600;cursor:pointer;transition:all .15s;letter-spacing:.5px;display:block;text-align:center}
+.pill.p{background:#7B5FCC;color:#fff}
+.pill.p:hover{background:#9578E8}
+.pill.p:disabled{opacity:.25;cursor:not-allowed}
+.pill.g{background:transparent;border:1.5px solid #7B5FCC55;color:#9B6FFF;margin-top:9px}
+.pill.g:hover{border-color:#7B5FCC}
+.blnk{background:transparent;border:none;color:#7B5FCC;cursor:pointer;font-size:13px;padding:0}
+.rv-body{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:24px;gap:10px}
+.rv-fl{font-size:52px;line-height:1;margin-bottom:4px}
+.rv-av{width:90px;height:90px;object-fit:contain;margin-bottom:4px;border-radius:50%}
+.rv-mt{font-size:11px;color:#555;letter-spacing:2px;text-transform:uppercase}
+.rv-nm{font-size:52px;font-weight:600;letter-spacing:3px;color:#fff;line-height:1;text-align:center;text-transform:uppercase}
+.rv-bd{font-size:12px;padding:5px 14px;border-radius:20px;border:.5px solid #7B5FCC44;color:#7B5FCC;margin-top:4px}
+.rv-ds{font-size:13px;color:#555;text-align:center;line-height:1.7;max-width:240px;margin-top:6px}
+.s3b{padding:14px 20px 26px;display:flex;flex-direction:column;gap:13px;flex:1}
+.flbl{font-size:11px;letter-spacing:2px;color:#555;text-transform:uppercase;font-weight:600;margin-bottom:7px;display:block}
+.di{width:100%;padding:12px 14px;border:.5px solid #222;border-radius:11px;font-size:15px;background:#111;color:#fff;outline:none}
+.di:focus{border-color:#7B5FCC55}
+.lopts{display:flex;flex-direction:column;gap:6px}
+.lopt{display:flex;align-items:center;gap:10px;padding:10px 12px;border:.5px solid #1c1c1c;border-radius:10px;cursor:pointer;background:#0f0f0f;transition:all .15s}
+.lopt.sel{border-color:#7B5FCC;background:#0f0b1a}
+.lopt .li{font-size:14px;width:20px;flex-shrink:0;text-align:center}
+.lopt .lt{font-size:12px;color:#666;flex:1}
+.lopt.sel .lt{color:#d0d0d0}
+.lopt .ld{width:12px;height:12px;border-radius:50%;border:1.5px solid #333;flex-shrink:0}
+.lopt.sel .ld{background:#7B5FCC;border-color:#7B5FCC}
+.cr{display:flex;gap:8px}
+.co{flex:1;padding:12px 8px;border:.5px solid #1c1c1c;border-radius:10px;cursor:pointer;background:#0f0f0f;text-align:center;transition:all .15s}
+.co.sel{border-color:#7B5FCC;background:#0f0b1a}
+.co .ct{font-size:14px;font-weight:600;color:#666;text-transform:uppercase;letter-spacing:.5px}
+.co .cs{font-size:10px;color:#444;margin-top:3px}
+.co.sel .ct{color:#fff}
+.co.sel .cs{color:#7B5FCC}
+.s4{display:flex;flex-direction:column;height:100%}
+.tabs{display:flex;border-bottom:.5px solid #1a1a1a;background:#0a0a0a;flex-shrink:0}
+.tab{flex:1;padding:12px 4px;background:transparent;border:none;cursor:pointer;font-size:12px;font-weight:600;color:#333;border-bottom:2px solid transparent;transition:all .15s;text-transform:uppercase;letter-spacing:1px}
+.tab.a{color:#7B5FCC;border-bottom-color:#7B5FCC}
+.vb{background:transparent;border:none;color:#7B5FCC;cursor:pointer;font-size:12px;padding:8px 16px 4px;display:flex;align-items:center;gap:4px;flex-shrink:0}
+.vb:hover{color:#9578E8}
+.cv{flex:1;display:flex;flex-direction:column;overflow:hidden}
+.ch{padding:10px 14px;border-bottom:.5px solid #1a1a1a;display:flex;align-items:center;gap:9px;flex-shrink:0}
+.cav{width:32px;height:32px;border-radius:50%;border:.5px solid #333;display:flex;align-items:center;justify-content:center;font-size:16px;background:#161616;flex-shrink:0;object-fit:cover}
+.ci h4{font-size:14px;font-weight:600;color:#e0e0e0}
+.ci p{font-size:10px;color:#444}
+.lt2{margin-left:auto;font-size:10px;padding:3px 8px;border-radius:20px;background:#161616;color:#666;border:.5px solid #2a2a2a;white-space:nowrap}
+.lt2.det{color:#CF9520;border-color:#5a3a00}
+.finbtn{font-size:10px;padding:4px 10px;border:1.5px solid #7B5FCC55;border-radius:20px;background:transparent;cursor:pointer;color:#7B5FCC}
+.finbtn:hover{border-color:#7B5FCC}
+.msgs{flex:1;overflow-y:auto;padding:10px 12px;display:flex;flex-direction:column;gap:8px}
+.b{max-width:82%;padding:9px 12px;border-radius:14px;font-size:14px;line-height:1.55}
+.b.bot{background:#161616;color:#c8c8c8;align-self:flex-start;border-bottom-left-radius:3px}
+.b.usr{background:#130e20;color:#e0e0e0;align-self:flex-end;border-bottom-right-radius:3px;border:.5px solid #2d1c4a}
+.fbc{background:#0f0f0f;border:.5px solid #222;border-radius:13px;padding:14px;font-size:13px;color:#888;align-self:stretch;line-height:1.8}
+.fbc .ft{font-size:10px;letter-spacing:2px;color:#333;margin-bottom:9px;text-transform:uppercase;font-weight:600}
+.ty{display:flex;gap:4px;align-items:center;padding:9px 12px;background:#161616;border-radius:14px;border-bottom-left-radius:3px;align-self:flex-start}
+.dot{width:5px;height:5px;border-radius:50%;background:#444;animation:bop 1.1s infinite}
+.dot:nth-child(2){animation-delay:.18s}.dot:nth-child(3){animation-delay:.36s}
+@keyframes bop{0%,60%,100%{transform:translateY(0)}30%{transform:translateY(-5px)}}
+.ib{padding:10px 12px;border-top:.5px solid #1a1a1a;display:flex;gap:8px;align-items:center;background:#0a0a0a;flex-shrink:0}
+.di2{flex:1;padding:9px 14px;border:1.5px solid #2a2a2a;border-radius:22px;font-size:14px;background:#161616;color:#fff;outline:none}
+.di2:focus{border-color:#7B5FCC55}
+.ibb{width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;cursor:pointer;transition:all .15s}
+.mic{border:1.5px solid #7B5FCC66;background:#161616;color:#7B5FCC}
+.mic:hover{border-color:#7B5FCC;color:#9578E8;background:#1a1428}
+.mic.rec{border-color:#FF8C3A;color:#FF8C3A;background:#1a0800;animation:pls .8s infinite}
+@keyframes pls{0%,100%{box-shadow:0 0 0 0 #FF8C3A33}50%{box-shadow:0 0 0 6px #FF8C3A00}}
+.ibb svg{width:14px;height:14px;fill:currentColor}
+.snd{border:none;background:#7B5FCC;color:#fff}
+.snd:hover{background:#9578E8}
+.ev{flex:1;display:none;flex-direction:column;overflow:hidden}
+.emenu{flex:1;overflow-y:auto;padding:0 18px 16px;display:flex;flex-direction:column}
+.eh{font-size:11px;letter-spacing:2px;color:#444;text-transform:uppercase;font-weight:600;margin-bottom:12px}
+.ec{border:.5px solid #1e1e1e;border-radius:13px;padding:13px 15px;background:#0f0f0f;cursor:pointer;margin-bottom:9px;display:flex;align-items:center;gap:13px;transition:all .15s}
+.ec:hover{border-color:#7B5FCC44;background:#0d0b14}
+.ec .ei{font-size:20px;flex-shrink:0}
+.ec .et{font-size:13px;font-weight:600;color:#d0d0d0;text-transform:uppercase;letter-spacing:.5px}
+.ec .ed{font-size:11px;color:#444;margin-top:2px}
+.eact{flex:1;overflow-y:auto;padding:0 18px 16px;display:flex;flex-direction:column;gap:10px}
+.eq{background:#161616;border-radius:13px;padding:13px;font-size:14px;color:#c8c8c8;line-height:1.6}
+.eo{width:100%;padding:11px 13px;border:.5px solid #1e1e1e;border-radius:9px;background:#0f0f0f;color:#888;font-size:13px;cursor:pointer;text-align:left;transition:all .15s;margin-bottom:6px}
+.eo:hover{border-color:#7B5FCC44;color:#e0e0e0}
+.eo.ok{border-color:#2E6B0F;background:#061000;color:#7DC44A}
+.eo.bad{border-color:#6B0F0F;background:#100006;color:#E08080}
+.efb{background:#111;border:.5px solid #1e1e1e;border-radius:9px;padding:11px;font-size:13px;color:#888;line-height:1.6;display:none}
+.enx{width:100%;padding:12px;border-radius:50px;background:#7B5FCC;border:none;color:#fff;font-size:14px;font-weight:600;cursor:pointer;display:none;margin-top:3px}
+.enx:hover{background:#9578E8}
+.eir{display:flex;gap:8px}
+.eti{flex:1;padding:10px 13px;border:.5px solid #2a2a2a;border-radius:9px;font-size:14px;background:#161616;color:#fff;outline:none}
+.eti:focus{border-color:#7B5FCC55}
+.ego{padding:10px 14px;border-radius:9px;background:#7B5FCC;border:none;color:#fff;font-size:14px;font-weight:600;cursor:pointer}
+.eld{color:#555;font-size:13px;text-align:center;padding:28px;display:none}
+</style>
+</head>
+<body>
+<div class="app">
+
+<div class="flag-area">
+  <button class="fb" id="ftb" onclick="tfl()"><span id="fi">🇪🇸</span><span id="fc">ES</span></button>
+  <div class="fm" id="fm">
+    <button class="fo a" onclick="sui('es',this,'🇪🇸','ES')">🇪🇸 Español</button>
+    <button class="fo" onclick="sui('en',this,'🇺🇸','EN')">🇺🇸 English</button>
+    <button class="fo" onclick="sui('de',this,'🇩🇪','DE')">🇩🇪 Deutsch</button>
+    <button class="fo" onclick="sui('fr',this,'🇫🇷','FR')">🇫🇷 Français</button>
+  </div>
+</div>
+
+<!-- S1: LANGUAGE SELECT -->
+<div class="scr" id="s1">
+  <div style="height:50px;flex-shrink:0"></div>
+  <div class="logo-wrap">
+    <img src="ravenlogo.jpeg" alt="RAVEN" class="logo-img" onerror="this.style.display='none';document.getElementById('logo-svg-fallback').style.display='block'"/>
+    <svg id="logo-svg-fallback" class="logo-svg" style="display:none" viewBox="0 0 48 58" fill="none">
+      <path d="M32 3C38 8,42 19,40 32C38 44,31 52,23 58" stroke="white" stroke-width="1.9" fill="none" stroke-linecap="round"/>
+      <path d="M32 3C36 11,41 24,41 35C41 46,35 54,23 58" stroke="white" stroke-width="1.9" fill="none" stroke-linecap="round"/>
+      <path d="M32 3C34 1.5,37 2,36 5.5" stroke="white" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+    </svg>
+    <div class="wm">Raven</div>
+    <div class="tg" id="tg">Tu compañero de idiomas</div>
+  </div>
+  <div class="hdiv"></div>
+  <div class="lang-list">
+    <div class="slbl" id="lch" style="margin-bottom:11px">Elige tu idioma</div>
+    <div class="lr" id="lde" onclick="pl('de')"><span class="lf">🇩🇪</span><div style="flex:1"><div class="ln">DEUTSCH</div><div class="ls" id="ldes">Alemán · con Raven</div></div><div class="lck"></div></div>
+    <div class="lr" id="lfr" onclick="pl('fr')"><span class="lf">🇫🇷</span><div style="flex:1"><div class="ln">FRANÇAIS</div><div class="ls" id="lfrs">Francés · avec Baguette</div></div><div class="lck"></div></div>
+    <div class="lr" id="len" onclick="pl('en')"><span class="lf">🇬🇧</span><div style="flex:1"><div class="ln">ENGLISH</div><div class="ls" id="lens">Inglés · with Sparrow</div></div><div class="lck"></div></div>
+    <div class="lr" id="les" onclick="pl('es_learn')"><span class="lf">🇪🇸</span><div style="flex:1"><div class="ln">ESPAÑOL</div><div class="ls" id="less">Español · con Baguette</div></div><div class="lck"></div></div>
+  </div>
+  <div class="bot"><button class="pill p" id="bs1" onclick="grev()" disabled id="lct">Continuar →</button></div>
+</div>
+
+<!-- S2: COMPANION REVEAL -->
+<div class="scr off" id="s2">
+  <div style="height:50px;flex-shrink:0"></div>
+  <div class="rv-body">
+    <div id="rv-av-wrap"></div>
+    <div class="rv-mt" id="rvm">Te presento a</div>
+    <div class="rv-nm" id="rvn">RAVEN</div>
+    <div class="rv-bd" id="rvb">Deutsch</div>
+    <div class="rv-ds" id="rvd">Tu compañera de alemán.</div>
+  </div>
+  <div class="bot">
+    <button class="pill p" id="bs2" onclick="gset()">Comenzar →</button>
+    <button class="pill g" id="bs2b" onclick="ss('s1')">← Cambiar idioma</button>
+  </div>
+</div>
+
+<!-- S3: SETUP -->
+<div class="scr off" id="s3">
+  <div style="height:50px;flex-shrink:0"></div>
+  <div class="s3b">
+    <button class="blnk" onclick="ss('s2')">← <span id="lbk">Volver</span></button>
+    <div><span class="flbl" id="lnf">Nombre</span><input class="di" type="text" id="un" oninput="cks()" placeholder="Tu nombre..."/></div>
+    <div>
+      <span class="flbl" id="llf">Nivel</span>
+      <div class="lopts">
+        <div class="lopt sel" onclick="plv('auto',this)"><span class="li">✨</span><span class="lt" id="lau">Lo detecta solo</span><div class="ld"></div></div>
+        <div class="lopt" onclick="plv('beginner',this)"><span class="li">🌱</span><span class="lt">A1–A2 · <span id="lbg" style="opacity:.5">Principiante</span></span><div class="ld"></div></div>
+        <div class="lopt" onclick="plv('intermediate',this)"><span class="li">🌿</span><span class="lt">B1–B2 · <span id="lin" style="opacity:.5">Intermedio</span></span><div class="ld"></div></div>
+        <div class="lopt" onclick="plv('advanced',this)"><span class="li">🌳</span><span class="lt">C1–C2 · <span id="lav" style="opacity:.5">Avanzado</span></span><div class="ld"></div></div>
+      </div>
+    </div>
+    <div>
+      <span class="flbl" id="lcf">Correcciones</span>
+      <div class="cr">
+        <div class="co" id="co1" onclick="pc('inline',this)"><div class="ct" id="lc1">DURANTE</div><div class="cs" id="lc1s">Al instante</div></div>
+        <div class="co sel" id="co2" onclick="pc('end',this)"><div class="ct" id="lc2">AL FINAL</div><div class="cs" id="lc2s">Flujo natural</div></div>
+      </div>
+    </div>
+    <div style="flex:1;min-height:8px"></div>
+    <button class="pill p" id="bst" onclick="sma()" disabled>Comenzar →</button>
+  </div>
+</div>
+
+<!-- S4: MAIN APP -->
+<div class="scr off" id="s4" style="overflow:hidden">
+  <div class="s4">
+    <div class="tabs">
+      <button class="tab a" id="tc" onclick="stab('chat')"><span id="tlc">CONVERSAR</span></button>
+      <button class="tab" id="te" onclick="stab('ex')"><span id="tle">EJERCICIOS</span></button>
+    </div>
+    <div class="cv" id="vc">
+      <div class="ch">
+        <div id="chat-av-wrap" class="cav"></div>
+        <div class="ci"><h4 id="cnm"></h4><p id="csb"></p></div>
+        <span class="lt2 det" id="clv">✨</span>
+        <button class="finbtn" id="finbtn" onclick="endS()">Fin ✓</button>
+      </div>
+      <button class="vb" onclick="goBack()">← <span id="lcb">Configuración</span></button>
+      <div class="msgs" id="msgs"></div>
+      <div class="ib">
+        <button class="ibb mic" id="mb" onclick="tmc()"><svg viewBox="0 0 24 24"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3zm-1 3a1 1 0 0 1 2 0v8a1 1 0 0 1-2 0V4zm-4 8a5 5 0 0 0 10 0h2a7 7 0 0 1-6 6.93V21h-2v-2.07A7 7 0 0 1 5 12H7z"/></svg></button>
+        <input class="di2" type="text" id="ci2" placeholder="Escribe aquí..." onkeydown="if(event.key==='Enter')snd()"/>
+        <button class="ibb snd" onclick="snd()"><svg viewBox="0 0 24 24"><path d="M2 21L23 12 2 3v7l15 2-15 2z"/></svg></button>
+      </div>
+    </div>
+    <div class="ev" id="ve">
+      <button class="vb" onclick="goBack()">← <span id="leb">Configuración</span></button>
+      <div id="emenu" class="emenu">
+        <div class="eh" id="leh">EJERCICIOS</div>
+        <div class="ec" onclick="sex('vocab')"><span class="ei">🃏</span><div><div class="et" id="evt">VOCABULARIO</div><div class="ed" id="evd">Traduce palabras</div></div></div>
+        <div class="ec" onclick="sex('grammar')"><span class="ei">🔧</span><div><div class="et" id="egt">GRAMÁTICA</div><div class="ed" id="egd">Completa la oración</div></div></div>
+        <div class="ec" onclick="sex('situation')"><span class="ei">💬</span><div><div class="et" id="est">SITUACIONES</div><div class="ed" id="esd">¿Cómo dirías esto?</div></div></div>
+        <div class="ec" onclick="sex('listen')"><span class="ei">👂</span><div><div class="et" id="elt">ESCUCHA</div><div class="ed" id="eld">Escucha y escribe</div></div></div>
+      </div>
+      <div id="eact" class="eact" style="display:none">
+        <button class="blnk" onclick="bex()" style="margin-bottom:6px">← <span id="leb2">Ejercicios</span></button>
+        <div class="eld" id="eload">Generando...</div>
+        <div id="econt"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</div>
+<script>
+const TR={
+  es:{tg:'Tu compañero de idiomas',lch:'ELIGE TU IDIOMA',ldes:'Alemán · con Raven',lfrs:'Francés · avec Baguette',lens:'Inglés · with Sparrow',less:'Español · con Baguette',lbk:'Volver',lnf:'NOMBRE',llf:'NIVEL',lcf:'CORRECCIONES',lbg:'Principiante',lin:'Intermedio',lav:'Avanzado',lc1:'DURANTE',lc1s:'Al instante',lc2:'AL FINAL',lc2s:'Flujo natural',det:'✨ detectando...',ph:'Escribe aquí...',pn:'Tu nombre...',tlc:'CONVERSAR',tle:'EJERCICIOS',lcb:'Configuración',leb:'Configuración',leh:'EJERCICIOS',evt:'VOCABULARIO',evd:'Traduce palabras',egt:'GRAMÁTICA',egd:'Completa la oración',est:'SITUACIONES',esd:'¿Cómo dirías esto?',elt:'ESCUCHA',eld:'Escucha y escribe',leb2:'Ejercicios',next:'SIGUIENTE →',cont:'Continuar →',start:'Comenzar →',chLang:'← Cambiar idioma',rvm:'Te presento a',rv:{de:{d:'Tu compañera de alemán. Elegante, seria y siempre lista.'},fr:{d:'Ton compagnon français. Simpático, expresivo y siempre contento.'},en:{d:'Your English companion. Friendly, dynamic and modern.'},es_learn:{d:'Tu compañero de español. Paciente y siempre listo para ayudarte.'}}},
+  en:{tg:'Your language companion',lch:'CHOOSE YOUR LANGUAGE',ldes:'German · with Raven',lfrs:'French · avec Baguette',lens:'English · with Sparrow',less:'Spanish · con Baguette',lbk:'Back',lnf:'NAME',llf:'LEVEL',lcf:'CORRECTIONS',lbg:'Beginner',lin:'Intermediate',lav:'Advanced',lc1:'AS I GO',lc1s:'Instant',lc2:'AT THE END',lc2s:'Natural flow',det:'✨ detecting...',ph:'Type here...',pn:'Your name...',tlc:'CHAT',tle:'EXERCISES',lcb:'Settings',leb:'Settings',leh:'EXERCISES',evt:'VOCABULARY',evd:'Translate words',egt:'GRAMMAR',egd:'Complete sentence',est:'SITUATIONS',esd:'How would you say this?',elt:'LISTENING',eld:'Listen and write',leb2:'Exercises',next:'NEXT →',cont:'Continue →',start:'Start →',chLang:'← Change language',rvm:'Meet your companion',rv:{de:{d:'Your German companion. Elegant and always ready.'},fr:{d:'Your French companion. Fun and expressive.'},en:{d:'Your English companion. Friendly and modern.'},es_learn:{d:'Your Spanish companion. Patient and always ready.'}}},
+  de:{tg:'Dein Sprachbegleiter',lch:'WÄHLE DEINE SPRACHE',ldes:'Deutsch · mit Raven',lfrs:'Französisch · avec Baguette',lens:'Englisch · with Sparrow',less:'Spanisch · con Baguette',lbk:'Zurück',lnf:'NAME',llf:'NIVEAU',lcf:'KORREKTUREN',lbg:'Anfänger',lin:'Mittelstufe',lav:'Fortgeschritten',lc1:'SOFORT',lc1s:'Direkt',lc2:'AM ENDE',lc2s:'Natürlich',det:'✨ erkenne...',ph:'Schreib hier...',pn:'Dein Name...',tlc:'GESPRÄCH',tle:'ÜBUNGEN',lcb:'Einstellungen',leb:'Einstellungen',leh:'ÜBUNGEN',evt:'VOKABULAR',evd:'Übersetzen',egt:'GRAMMATIK',egd:'Vervollständigen',est:'SITUATIONEN',esd:'Wie sagst du das?',elt:'HÖREN',eld:'Hören & schreiben',leb2:'Übungen',next:'WEITER →',cont:'Weiter →',start:'Starten →',chLang:'← Sprache ändern',rvm:'Dein Begleiter',rv:{de:{d:'Deine elegante Deutschbegleiterin.'},fr:{d:'Dein Französischbegleiter. Lustig und ausdrucksstark.'},en:{d:'Dein Englischbegleiter. Freundlich und modern.'},es_learn:{d:'Dein Spanischbegleiter. Geduldig und immer bereit.'}}},
+  fr:{tg:'Ton compagnon de langues',lch:'CHOISIS TA LANGUE',ldes:'Allemand · mit Raven',lfrs:'Français · avec Baguette',lens:'Anglais · with Sparrow',less:'Espagnol · con Baguette',lbk:'Retour',lnf:'PRÉNOM',llf:'NIVEAU',lcf:'CORRECTIONS',lbg:'Débutant',lin:'Intermédiaire',lav:'Avancé',lc1:'PENDANT',lc1s:'Immédiat',lc2:'À LA FIN',lc2s:'Flux naturel',det:'✨ détection...',ph:'Écris ici...',pn:'Ton prénom...',tlc:'CONVERSATION',tle:'EXERCICES',lcb:'Paramètres',leb:'Paramètres',leh:'EXERCICES',evt:'VOCABULAIRE',evd:'Traduire',egt:'GRAMMAIRE',egd:'Compléter',est:'SITUATIONS',esd:'Comment dire ça?',elt:'ÉCOUTE',eld:'Écouter & écrire',leb2:'Exercices',next:'SUIVANT →',cont:'Continuer →',start:'Commencer →',chLang:'← Changer',rvm:'Rencontre ton compagnon',rv:{de:{d:'Ton compagnon allemand. Élégant et prêt.'},fr:{d:'Ton compagnon français. Sympa et expressif.'},en:{d:'Ton compagnon anglais. Sympa et moderne.'},es_learn:{d:'Ton compagnon espagnol. Patient et toujours là.'}}}
+};
+
+let ul='es',tl='',lv='auto',cm='end',un2='',dlv=null,dm=0;
+const CP={
+  de:{n:'Raven',av:'ravenlogo.jpeg',em:'🐦‍⬛',s:'Deine Deutschbegleiterin',f:'German',sr:'de-DE'},
+  fr:{n:'Baguette',av:'baguette.jpeg',em:'🥖',s:'Ton compagnon français',f:'French',sr:'fr-FR'},
+  en:{n:'Sparrow',av:'sparrow.jpeg',em:'🐦',s:'Your English companion',f:'English',sr:'en-GB'},
+  es_learn:{n:'Baguette',av:'baguette.jpeg',em:'🥖',s:'Tu compañero de español',f:'Spanish',sr:'es-ES'}
+};
+const hists={de:[],fr:[],en:[],es_learn:[]};
+
+function cn(){return tl?CP[tl].n:'RAVEN';}
+
+function atr(){
+  const t=TR[ul];
+  const ids={tg:'tg',lch:'lch',ldes:'ldes',lfrs:'lfrs',lens:'lens',less:'less',lbk:'lbk',lnf:'lnf',llf:'llf',lcf:'lcf',lbg:'lbg',lin:'lin',lav:'lav',lc1:'lc1',lc1s:'lc1s',lc2:'lc2',lc2s:'lc2s',tlc:'tlc',tle:'tle',lcb:'lcb',leb:'leb',leh:'leh',evt:'evt',evd:'evd',egt:'egt',egd:'egd',est:'est',esd:'esd',elt:'elt',eld:'eld',leb2:'leb2',rvm:'rvm'};
+  for(const[id,k]of Object.entries(ids)){const el=document.getElementById(id);if(el)el.textContent=t[k];}
+  document.getElementById('ci2').placeholder=t.ph;
+  document.getElementById('un').placeholder=t.pn;
+  document.getElementById('bs1').textContent=t.cont;
+  document.getElementById('bs2').textContent=t.start;
+  document.getElementById('bs2b').textContent=t.chLang;
+  document.getElementById('bst').textContent=t.start;
+  const lvt=document.getElementById('clv');if(lvt&&lvt.classList.contains('det'))lvt.textContent=t.det;
+  ual();if(tl)urv();
+}
+
+function ual(){
+  const n=cn();
+  const lb={es:`${n} lo detecta`,en:`${n} detects it`,de:`${n} erkennt es`,fr:`${n} le détecte`};
+  document.getElementById('lau').textContent=lb[ul]||`${n} lo detecta`;
+}
+
+function tfl(){document.getElementById('fm').classList.toggle('open');}
+document.addEventListener('click',e=>{if(!e.target.closest('.flag-area'))document.getElementById('fm').classList.remove('open');});
+function sui(l,el,f,c){ul=l;document.getElementById('fi').textContent=f;document.getElementById('fc').textContent=c;document.querySelectorAll('.fo').forEach(b=>b.classList.remove('a'));el.classList.add('a');document.getElementById('fm').classList.remove('open');atr();}
+function ss(id){['s1','s2','s3','s4'].forEach(s=>{const el=document.getElementById(s);if(el)el.classList.toggle('off',s!==id);});}
+
+function pl(l){
+  tl=l;
+  ['de','fr','en','es_learn'].forEach(x=>document.getElementById('l'+x.replace('_',''))?.classList.toggle('sel',x===l));
+  // fix es_learn id
+  document.getElementById('lde').classList.toggle('sel',l==='de');
+  document.getElementById('lfr').classList.toggle('sel',l==='fr');
+  document.getElementById('len').classList.toggle('sel',l==='en');
+  document.getElementById('les').classList.toggle('sel',l==='es_learn');
+  document.getElementById('bs1').disabled=false;
+  ual();
+}
+
+function avHtml(lang,cls,size){
+  const c=CP[lang];
+  const sz=size||56;
+  return `<img src="${c.av}" class="${cls}" style="width:${sz}px;height:${sz}px;border-radius:50%;object-fit:cover" onerror="this.outerHTML='<span style=\\'font-size:${Math.round(sz*.6)}px\\'>${c.em}</span>"/>`;
+}
+
+function urv(){
+  if(!tl)return;
+  const t=TR[ul];const c=CP[tl];
+  document.getElementById('rv-av-wrap').innerHTML=avHtml(tl,'rv-av',80);
+  document.getElementById('rvn').textContent=c.n.toUpperCase();
+  document.getElementById('rvb').textContent={de:'Deutsch',fr:'Français',en:'English',es_learn:'Español'}[tl];
+  document.getElementById('rvd').textContent=t.rv[tl].d;
+  document.getElementById('rvm').textContent=t.rvm;
+}
+
+function grev(){urv();ss('s2');}
+function gset(){ss('s3');ual();}
+function plv(l,el){lv=l;document.querySelectorAll('.lopt').forEach(o=>o.classList.remove('sel'));el.classList.add('sel');}
+function pc(m,el){cm=m;document.querySelectorAll('.co').forEach(o=>o.classList.remove('sel'));el.classList.add('sel');}
+function cks(){un2=document.getElementById('un').value.trim();document.getElementById('bst').disabled=!un2;}
+function goBack(){ss('s3');ual();}
+
+function sma(){
+  ss('s4');stab('chat');
+  const c=CP[tl];
+  dlv=lv==='auto'?null:lv;dm=0;
+  document.getElementById('chat-av-wrap').innerHTML=avHtml(tl,'cav',32);
+  document.getElementById('cnm').textContent=c.n;
+  document.getElementById('csb').textContent=c.s;
+  document.getElementById('finbtn').textContent=TR[ul].next?'Fin ✓':'Fin ✓';
+  const tag=document.getElementById('clv');
+  if(lv!=='auto'){tag.textContent={beginner:'🌱 A1–A2',intermediate:'🌿 B1–B2',advanced:'🌳 C1–C2'}[lv];tag.classList.remove('det');}
+  else{tag.textContent=TR[ul].det;tag.classList.add('det');}
+  document.getElementById('msgs').innerHTML='';
+  if(hists[tl].length>0){
+    hists[tl].forEach(m=>{if(m.role==='assistant')ab(m.content);else if(m.role==='user')au(m.content);});
+  } else {
+    const G={
+      de:{auto:`Hallo ${un2}! Ich bin Raven 🐦‍⬛ Was machst du so?`,beginner:`Hallo ${un2}! Ich bin Raven. Wie geht es dir?`,intermediate:`Hallo ${un2}! Ich bin Raven. Worüber möchtest du sprechen?`,advanced:`Hallo ${un2}! Was beschäftigt dich gerade?`},
+      fr:{auto:`Bonjour ${un2}! Je suis Baguette 🥖 Qu'est-ce que tu fais dans la vie?`,beginner:`Bonjour ${un2}! Je m'appelle Baguette. Comment vas-tu?`,intermediate:`Bonjour ${un2}! De quoi veux-tu parler?`,advanced:`Bonjour ${un2}! Qu'est-ce qui t'intéresse?`},
+      en:{auto:`Hey ${un2}! I'm Sparrow 🐦 Lovely to meet you! What do you get up to?`,beginner:`Hey ${un2}! I'm Sparrow. How are you today?`,intermediate:`Hey ${un2}! I'm Sparrow. What would you like to chat about?`,advanced:`Hello ${un2}! What's on your mind?`},
+      es_learn:{auto:`¡Hola ${un2}! Soy Baguette 🥖 ¿Qué tal? ¿De dónde eres?`,beginner:`¡Hola ${un2}! Soy Baguette. ¿Cómo estás?`,intermediate:`¡Hola ${un2}! ¿De qué quieres hablar hoy?`,advanced:`¡Hola ${un2}! ¿Qué te ronda por la cabeza?`}
+    };
+    const k=lv==='auto'?'auto':lv;const g=G[tl][k];
+    ab(g);hists[tl].push({role:'assistant',content:g});
+  }
+}
+
+function stab(t){
+  document.getElementById('tc').classList.toggle('a',t==='chat');
+  document.getElementById('te').classList.toggle('a',t==='ex');
+  document.getElementById('vc').style.display=t==='chat'?'flex':'none';
+  const ve=document.getElementById('ve');ve.style.display=t==='ex'?'flex':'none';
+  if(t==='ex'){document.getElementById('emenu').style.display='flex';document.getElementById('eact').style.display='none';}
+}
+
+function ab(tx){const m=document.getElementById('msgs');const d=document.createElement('div');d.className='b bot';d.textContent=tx;m.appendChild(d);m.scrollTop=m.scrollHeight;}
+function au(tx){const m=document.getElementById('msgs');const d=document.createElement('div');d.className='b usr';d.textContent=tx;m.appendChild(d);m.scrollTop=m.scrollHeight;}
+function sht(){const m=document.getElementById('msgs');const d=document.createElement('div');d.id='ty';d.className='ty';d.innerHTML='<div class="dot"></div><div class="dot"></div><div class="dot"></div>';m.appendChild(d);m.scrollTop=m.scrollHeight;}
+function hdt(){const t=document.getElementById('ty');if(t)t.remove();}
+
+function bsys(){
+  const c=CP[tl];
+  const li=dlv?({beginner:'Use very simple vocabulary and short sentences. Be encouraging.',intermediate:'Use natural vocabulary and introduce new words in context.',advanced:'Speak naturally with idiomatic expressions.'}[dlv]):'Start naturally. After 4 exchanges silently assess level from vocabulary/grammar/fluency and adapt. Never mention assessing.';
+  const ci=cm==='inline'?'Correct errors gently inline using ✏️ then continue.':'Do NOT correct during conversation. Just respond naturally.';
+  return `You are ${c.n}, a warm and witty ${c.f} language companion in the RAVEN app.\nUser: ${un2}.\n- Respond ONLY in ${c.f}\n- Level: ${li}\n- Corrections: ${ci}\n- Style: max 3 sentences, always ask a follow-up question.`;
+}
+
+async function callAPI(messages,system){
+  const r=await fetch('/.netlify/functions/chat',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({messages,system})});
+  if(!r.ok){const t=await r.text();throw new Error(t);}
+  return await r.json();
+}
+
+async function snd(){
+  const inp=document.getElementById('ci2');const tx=inp.value.trim();if(!tx)return;
+  inp.value='';au(tx);hists[tl].push({role:'user',content:tx});dm++;sht();
+  try{
+    const d=await callAPI(hists[tl],bsys());hdt();
+    if(d.error){ab('Error: '+d.error.message);hists[tl].pop();return;}
+    const rp=d.content?.[0]?.text||'...';ab(rp);hists[tl].push({role:'assistant',content:rp});
+    if(lv==='auto'&&!dlv&&dm>=4)adt();
+  }catch(e){hdt();ab('Error: '+e.message);}
+}
+
+async function adt(){
+  try{
+    const d=await callAPI(hists[tl].filter(m=>m.role==='user'),`Analyze user's ${CP[tl].f} messages. ONE word: "beginner", "intermediate", or "advanced".`);
+    const raw=(d.content?.[0]?.text||'').toLowerCase();
+    const lv2=raw.includes('beginner')?'beginner':raw.includes('advanced')?'advanced':'intermediate';
+    dlv=lv2;const tag=document.getElementById('clv');
+    tag.textContent={beginner:'🌱 A1–A2',intermediate:'🌿 B1–B2',advanced:'🌳 C1–C2'}[lv2];tag.classList.remove('det');
+  }catch(e){}
+}
+
+async function endS(){
+  if(hists[tl].length<2)return;sht();
+  const c=CP[tl];const ol={es:'Spanish',en:'English',de:'German',fr:'French'}[ul]||'Spanish';
+  try{
+    const d=await callAPI([...hists[tl],{role:'user',content:'End session feedback.'}],`You are ${c.n}. Summarize this ${c.f} session for ${un2} in ${ol}. 1) Warm closing. 2) Up to 4 errors: ❌ wrong → ✅ correct + reason. 3) One strength. 4) One tip. Short and encouraging.`);
+    hdt();const fb=d.content?.[0]?.text||'';
+    const card=document.createElement('div');card.className='fbc';
+    card.innerHTML='<div class="ft">✦ RESUMEN</div>'+fb.replace(/\n/g,'<br>');
+    document.getElementById('msgs').appendChild(card);document.getElementById('msgs').scrollTop=99999;
+    hists[tl]=[];
+  }catch(e){hdt();}
+}
+
+let cex=null;
+function bex(){document.getElementById('emenu').style.display='flex';document.getElementById('eact').style.display='none';}
+
+async function sex(tp){
+  document.getElementById('emenu').style.display='none';
+  const ea=document.getElementById('eact');ea.style.display='flex';
+  const el=document.getElementById('eload');el.style.display='block';el.textContent=TR[ul].det||'Generando...';
+  document.getElementById('econt').innerHTML='';
+  const c=CP[tl];const lv2=dlv||lv||'intermediate';
+  const ul2={es:'Spanish',en:'English',de:'German',fr:'French'}[ul]||'Spanish';
+  const P={
+    vocab:`Create a ${c.f} vocabulary MCQ for CEFR ${lv2}. JSON only no markdown: {"type":"mcq","question":"Translate to ${c.f}: [common ${ul2} word]","options":["a","b","c","d"],"correct":0,"explanation":"brief note in ${ul2}"}`,
+    grammar:`Create a ${c.f} grammar MCQ for CEFR ${lv2}. JSON only: {"type":"mcq","question":"[${c.f} sentence with ___]","options":["a","b","c","d"],"correct":0,"explanation":"grammar rule in ${ul2}"}`,
+    situation:`Real-life ${c.f} situation for CEFR ${lv2}. JSON only: {"type":"open","question":"[context in ${ul2}]: Say in ${c.f}: '[phrase]'?","answer":"[correct ${c.f}]","explanation":"note in ${ul2}"}`,
+    listen:`${c.f} dictation sentence for CEFR ${lv2}. JSON only: {"type":"listen","sentence":"[short ${c.f} sentence]","translation":"[${ul2}]"}`
+  };
+  try{
+    const d=await callAPI([{role:'user',content:P[tp]}],'You are a language exercise generator. Return JSON only, no markdown fences.');
+    if(d.error){el.textContent='Error: '+d.error.message;return;}
+    let raw=(d.content?.[0]?.text||'{}').replace(/```json\s*|```/gi,'').trim();
+    cex=JSON.parse(raw);cex.tp=tp;el.style.display='none';rex(cex);
+  }catch(e){el.textContent='Error: '+e.message;}
+}
+
+function rex(ex){
+  const cont=document.getElementById('econt');const t=TR[ul];
+  if(ex.type==='mcq'){
+    let h=`<div class="eq">${ex.question}</div>`;
+    ex.options.forEach((o,i)=>{h+=`<button class="eo" onclick="dmc(${i})">${o}</button>`;});
+    h+=`<div class="efb" id="efb"></div><button class="enx" id="enx" onclick="sex('${ex.tp}')">${t.next}</button>`;
+    cont.innerHTML=h;
+  }else if(ex.type==='open'){
+    cont.innerHTML=`<div class="eq">${ex.question}</div><div class="eir"><input class="eti" type="text" id="eoi" placeholder="..." onkeydown="if(event.key==='Enter')dop()"/><button class="ego" onclick="dop()">→</button></div><div class="efb" id="efb"></div><button class="enx" id="enx" onclick="sex('${ex.tp}')">${t.next}</button>`;
+  }else if(ex.type==='listen'){
+    const hv='speechSynthesis' in window;
+    cont.innerHTML=`<div class="eq" style="text-align:center;padding:20px 0">${hv?`<button onclick="dsp()" style="background:#1a1428;border:1.5px solid #7B5FCC55;border-radius:10px;padding:12px 22px;color:#9B6FFF;cursor:pointer;font-size:14px">🔊 Escuchar</button>`:`<p style="color:#c8c8c8">${ex.sentence}</p>`}</div><div class="eir"><input class="eti" type="text" id="eoi" placeholder="..." onkeydown="if(event.key==='Enter')dls()"/><button class="ego" onclick="dls()">→</button></div><div class="efb" id="efb"></div><button class="enx" id="enx" onclick="sex('${ex.tp}')">${t.next}</button>`;
+  }
+}
+
+function dmc(i){
+  document.querySelectorAll('.eo').forEach((o,j)=>{o.disabled=true;if(j===cex.correct)o.classList.add('ok');else if(j===i&&i!==cex.correct)o.classList.add('bad');});
+  const fb=document.getElementById('efb');fb.textContent=(i===cex.correct?'✓ ':'✗ ')+cex.explanation;fb.style.display='block';document.getElementById('enx').style.display='block';
+}
+function dop(){const v=document.getElementById('eoi').value.trim();if(!v)return;document.getElementById('eoi').disabled=true;const fb=document.getElementById('efb');fb.innerHTML=`✅ <strong>${cex.answer}</strong><br>${cex.explanation}`;fb.style.display='block';document.getElementById('enx').style.display='block';}
+function dls(){const v=document.getElementById('eoi').value.trim();if(!v)return;document.getElementById('eoi').disabled=true;const fb=document.getElementById('efb');fb.innerHTML=`<strong>${cex.sentence}</strong><br><span style="color:#555">${cex.translation}</span>`;fb.style.display='block';document.getElementById('enx').style.display='block';}
+function dsp(){const u=new SpeechSynthesisUtterance(cex.sentence);u.lang=CP[tl].sr;u.rate=.85;speechSynthesis.speak(u);}
+
+let rec=null,isr=false;
+function tmc(){
+  if(!('webkitSpeechRecognition'in window||'SpeechRecognition'in window)){alert('Requiere Chrome o Edge');return;}
+  const btn=document.getElementById('mb');
+  if(isr){rec.stop();return;}
+  const SR=window.SpeechRecognition||window.webkitSpeechRecognition;
+  rec=new SR();rec.lang=CP[tl]?.sr||'en-US';
+  rec.onstart=()=>{isr=true;btn.classList.add('rec');};
+  rec.onend=()=>{isr=false;btn.classList.remove('rec');};
+  rec.onresult=e=>{document.getElementById('ci2').value=e.results[0][0].transcript;snd();};
+  rec.onerror=()=>{isr=false;btn.classList.remove('rec');};
+  rec.start();
+}
+atr();
+</script>
+</body>
+</html>
