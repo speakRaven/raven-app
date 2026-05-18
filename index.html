@@ -15,7 +15,6 @@ body{height:100%;background:#000;display:flex;justify-content:center;align-items
 .app{width:100%;max-width:430px;height:100vh;height:100dvh;background:#0a0a0a;display:flex;flex-direction:column;position:relative;overflow:hidden}
 .scr{position:absolute;inset:0;display:flex;flex-direction:column;background:#0a0a0a;overflow-y:auto}
 .scr.off{display:none}
-/* FLAG */
 .flag-area{position:absolute;top:14px;right:14px;z-index:99}
 .fb{background:#1a1a2e;border:1.5px solid #7B5FCC;border-radius:8px;cursor:pointer;padding:5px 10px;font-size:11px;color:#9B6FFF;font-weight:600;display:flex;align-items:center;gap:5px}
 .fm{display:none;position:absolute;top:36px;right:0;background:#1a1a1a;border:1px solid #7B5FCC55;border-radius:10px;overflow:hidden;min-width:152px;box-shadow:0 4px 24px #00000099}
@@ -23,26 +22,23 @@ body{height:100%;background:#000;display:flex;justify-content:center;align-items
 .fo{display:flex;align-items:center;gap:9px;padding:10px 14px;font-size:13px;color:#ccc;cursor:pointer;border:none;width:100%;background:transparent;text-align:left}
 .fo:hover{background:#252525;color:#fff}
 .fo.a{color:#fff;background:#1a1428}
-/* LOGO */
-.logo-wrap{display:flex;flex-direction:column;align-items:center;gap:8px;padding:30px 0 16px}
-.logo-img{width:70px;height:70px;object-fit:contain;border-radius:12px}
+.logo-wrap{display:flex;flex-direction:column;align-items:center;gap:8px;padding:28px 0 14px}
+.logo-img{width:68px;height:68px;object-fit:contain;border-radius:12px}
 .wm{font-size:22px;font-weight:300;letter-spacing:7px;color:#fff;text-transform:uppercase}
 .tg{font-size:12px;color:#aaa;letter-spacing:.5px}
 .hdiv{height:.5px;background:#2a2a2a;margin:0 22px}
-/* LANG LIST */
-.lang-list{padding:16px 20px 0;flex:1}
-.slbl{font-size:13px;color:#ccc;font-weight:500;margin-bottom:13px;display:block}
-.lr{display:flex;align-items:center;gap:13px;padding:14px 15px;border:.5px solid #2a2a2a;border-radius:13px;cursor:pointer;background:#161616;margin-bottom:10px;transition:all .15s}
+.lang-list{padding:14px 20px 0;flex:1}
+.slbl{font-size:13px;color:#ccc;font-weight:500;margin-bottom:12px;display:block}
+.lr{display:flex;align-items:center;gap:12px;padding:13px 14px;border:.5px solid #2a2a2a;border-radius:13px;cursor:pointer;background:#161616;margin-bottom:9px;transition:all .15s}
 .lr:hover{border-color:#555;background:#1c1c1c}
 .lr.sel{border-color:#7B5FCC;background:#0f0b1a}
-.lf{font-size:26px;flex-shrink:0}
+.lf{font-size:24px;flex-shrink:0}
 .ln{font-size:16px;font-weight:600;letter-spacing:1px;color:#fff;text-transform:uppercase}
 .ls{font-size:12px;color:#aaa;margin-top:2px}
 .lr.sel .ls{color:#9B6FFF}
-.lck{width:19px;height:19px;border-radius:50%;border:1.5px solid #444;flex-shrink:0;margin-left:auto;transition:all .2s}
+.lck{width:18px;height:18px;border-radius:50%;border:1.5px solid #444;flex-shrink:0;margin-left:auto;transition:all .2s}
 .lr.sel .lck{background:#7B5FCC;border-color:#7B5FCC}
-/* BUTTONS */
-.bot{padding:14px 20px 28px;flex-shrink:0}
+.bot{padding:14px 20px 26px;flex-shrink:0}
 .pill{width:100%;padding:14px;border-radius:50px;border:none;font-size:15px;font-weight:600;cursor:pointer;transition:all .15s;letter-spacing:.5px;display:block;text-align:center}
 .pill.p{background:#7B5FCC;color:#fff}
 .pill.p:hover{background:#9578E8}
@@ -50,26 +46,24 @@ body{height:100%;background:#000;display:flex;justify-content:center;align-items
 .pill.g{background:transparent;border:1.5px solid #7B5FCC66;color:#9B6FFF;margin-top:10px}
 .pill.g:hover{border-color:#7B5FCC}
 .blnk{background:transparent;border:none;color:#7B5FCC;cursor:pointer;font-size:13px;padding:0}
-/* REVEAL */
 .rv-body{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:24px;gap:10px}
-.rv-av{width:90px;height:90px;border-radius:50%;object-fit:cover;margin-bottom:4px}
+.rv-av{width:88px;height:88px;border-radius:50%;object-fit:cover;border:2px solid #2a2a2a}
 .rv-mt{font-size:11px;color:#888;letter-spacing:2px;text-transform:uppercase}
-.rv-nm{font-size:52px;font-weight:600;letter-spacing:3px;color:#fff;line-height:1;text-align:center;text-transform:uppercase}
+.rv-nm{font-size:50px;font-weight:600;letter-spacing:3px;color:#fff;line-height:1;text-align:center;text-transform:uppercase}
 .rv-bd{font-size:12px;padding:5px 14px;border-radius:20px;border:.5px solid #7B5FCC44;color:#9B6FFF;margin-top:4px}
 .rv-ds{font-size:13px;color:#aaa;text-align:center;line-height:1.7;max-width:240px;margin-top:6px}
-/* SETUP */
-.s3b{padding:14px 20px 28px;display:flex;flex-direction:column;gap:14px;flex:1}
-.flbl{font-size:11px;letter-spacing:2px;color:#888;text-transform:uppercase;font-weight:600;margin-bottom:8px;display:block}
+.s3b{padding:14px 20px 26px;display:flex;flex-direction:column;gap:13px;flex:1}
+.flbl{font-size:11px;letter-spacing:2px;color:#888;text-transform:uppercase;font-weight:600;margin-bottom:7px;display:block}
 .di{width:100%;padding:12px 14px;border:.5px solid #2a2a2a;border-radius:11px;font-size:15px;background:#161616;color:#fff;outline:none}
 .di::placeholder{color:#666}
 .di:focus{border-color:#7B5FCC55}
 .lopts{display:flex;flex-direction:column;gap:6px}
-.lopt{display:flex;align-items:center;gap:10px;padding:11px 13px;border:.5px solid #2a2a2a;border-radius:10px;cursor:pointer;background:#161616;transition:all .15s}
+.lopt{display:flex;align-items:center;gap:10px;padding:10px 12px;border:.5px solid #2a2a2a;border-radius:10px;cursor:pointer;background:#161616;transition:all .15s}
 .lopt.sel{border-color:#7B5FCC;background:#0f0b1a}
 .lopt .li{font-size:14px;width:20px;flex-shrink:0;text-align:center}
 .lopt .lt{font-size:13px;color:#bbb;flex:1}
 .lopt.sel .lt{color:#fff}
-.lopt .ld{width:13px;height:13px;border-radius:50%;border:1.5px solid #444;flex-shrink:0}
+.lopt .ld{width:12px;height:12px;border-radius:50%;border:1.5px solid #444;flex-shrink:0}
 .lopt.sel .ld{background:#7B5FCC;border-color:#7B5FCC}
 .cr{display:flex;gap:8px}
 .co{flex:1;padding:12px 8px;border:.5px solid #2a2a2a;border-radius:10px;cursor:pointer;background:#161616;text-align:center;transition:all .15s}
@@ -78,17 +72,15 @@ body{height:100%;background:#000;display:flex;justify-content:center;align-items
 .co .cs{font-size:10px;color:#777;margin-top:3px}
 .co.sel .ct{color:#fff}
 .co.sel .cs{color:#9B6FFF}
-/* MAIN */
 .s4{display:flex;flex-direction:column;height:100%}
 .tabs{display:flex;border-bottom:.5px solid #1a1a1a;background:#0a0a0a;flex-shrink:0}
-.tab{flex:1;padding:12px 4px;background:transparent;border:none;cursor:pointer;font-size:12px;font-weight:600;color:#555;border-bottom:2px solid transparent;transition:all .15s;text-transform:uppercase;letter-spacing:1px}
+.tab{flex:1;padding:11px 2px;background:transparent;border:none;cursor:pointer;font-size:11px;font-weight:600;color:#555;border-bottom:2px solid transparent;transition:all .15s;text-transform:uppercase;letter-spacing:.5px}
 .tab.a{color:#7B5FCC;border-bottom-color:#7B5FCC}
 .vb{background:transparent;border:none;color:#7B5FCC;cursor:pointer;font-size:12px;padding:8px 16px 4px;display:flex;align-items:center;gap:4px;flex-shrink:0}
-/* CHAT */
 .cv{flex:1;display:flex;flex-direction:column;overflow:hidden}
 .ch{padding:10px 14px;border-bottom:.5px solid #1a1a1a;display:flex;align-items:center;gap:9px;flex-shrink:0}
-.cav{width:32px;height:32px;border-radius:50%;border:.5px solid #333;display:flex;align-items:center;justify-content:center;font-size:16px;background:#161616;flex-shrink:0;overflow:hidden}
-.cav img{width:100%;height:100%;object-fit:cover}
+.cav-wrap{width:32px;height:32px;border-radius:50%;border:.5px solid #333;overflow:hidden;display:flex;align-items:center;justify-content:center;background:#161616;flex-shrink:0;font-size:16px}
+.cav-wrap img{width:100%;height:100%;object-fit:cover}
 .ci h4{font-size:14px;font-weight:600;color:#e0e0e0}
 .ci p{font-size:10px;color:#777}
 .lt2{margin-left:auto;font-size:10px;padding:3px 8px;border-radius:20px;background:#1a1a1a;color:#888;border:.5px solid #2a2a2a;white-space:nowrap}
@@ -117,17 +109,18 @@ body{height:100%;background:#000;display:flex;justify-content:center;align-items
 .ibb svg{width:14px;height:14px;fill:currentColor}
 .snd{border:none;background:#7B5FCC;color:#fff}
 .snd:hover{background:#9578E8}
-/* EXERCISES */
 .ev{flex:1;display:none;flex-direction:column;overflow:hidden}
-.emenu{flex:1;overflow-y:auto;padding:0 18px 16px;display:flex;flex-direction:column}
-.eh{font-size:12px;letter-spacing:2px;color:#888;text-transform:uppercase;font-weight:600;margin-bottom:13px}
-.ec{border:.5px solid #2a2a2a;border-radius:13px;padding:13px 15px;background:#161616;cursor:pointer;margin-bottom:10px;display:flex;align-items:center;gap:13px;transition:all .15s}
+.emenu{flex:1;overflow-y:auto;padding:0 16px 16px;display:flex;flex-direction:column}
+.eh{font-size:11px;letter-spacing:2px;color:#888;text-transform:uppercase;font-weight:600;margin-bottom:11px}
+.ec{border:.5px solid #2a2a2a;border-radius:12px;padding:12px 14px;background:#161616;cursor:pointer;margin-bottom:9px;display:flex;align-items:center;gap:12px;transition:all .15s}
 .ec:hover{border-color:#7B5FCC44;background:#1a1a2a}
 .ec .ei{font-size:20px;flex-shrink:0}
 .ec .et{font-size:13px;font-weight:600;color:#e0e0e0;text-transform:uppercase;letter-spacing:.5px}
 .ec .ed{font-size:11px;color:#888;margin-top:2px}
-.eact{flex:1;overflow-y:auto;padding:0 18px 16px;display:flex;flex-direction:column;gap:10px}
-.eq{background:#1c1c1c;border-radius:13px;padding:13px;font-size:14px;color:#ddd;line-height:1.6}
+.ec.book-card{border-color:#2a2a1a;background:#141410}
+.ec.book-card:hover{border-color:#7B6F22;background:#1a1a0a}
+.eact{flex:1;overflow-y:auto;padding:0 16px 16px;display:flex;flex-direction:column;gap:10px}
+.eq{background:#1c1c1c;border-radius:12px;padding:13px;font-size:14px;color:#ddd;line-height:1.6}
 .eo{width:100%;padding:11px 13px;border:.5px solid #2a2a2a;border-radius:9px;background:#161616;color:#bbb;font-size:13px;cursor:pointer;text-align:left;transition:all .15s;margin-bottom:6px}
 .eo:hover{border-color:#7B5FCC44;color:#fff}
 .eo.ok{border-color:#2E6B0F;background:#061000;color:#7DC44A}
@@ -140,6 +133,10 @@ body{height:100%;background:#000;display:flex;justify-content:center;align-items
 .eti:focus{border-color:#7B5FCC55}
 .ego{padding:10px 14px;border-radius:9px;background:#7B5FCC;border:none;color:#fff;font-size:14px;font-weight:600;cursor:pointer}
 .eld{color:#888;font-size:13px;text-align:center;padding:28px;display:none}
+.book-sel{background:#1c1c10;border-radius:12px;padding:12px;display:flex;flex-direction:column;gap:8px}
+.book-item{padding:10px 12px;border:.5px solid #2a2a1a;border-radius:8px;background:#161610;color:#ccc;font-size:13px;cursor:pointer;transition:all .15s;line-height:1.5}
+.book-item:hover{border-color:#7B6F22;color:#fff;background:#1a1a0a}
+.legal-note{font-size:10px;color:#555;text-align:center;padding:8px 4px;line-height:1.5;border-top:.5px solid #1a1a1a;margin-top:4px}
 </style>
 </head>
 <body>
@@ -155,13 +152,12 @@ body{height:100%;background:#000;display:flex;justify-content:center;align-items
   </div>
 </div>
 
-<!-- S1: LANGUAGE -->
 <div class="scr" id="s1">
   <div style="height:52px;flex-shrink:0"></div>
   <div class="logo-wrap">
     <img src="ravenlogo.jpeg" alt="RAVEN" class="logo-img"
-      onerror="this.style.display='none';document.getElementById('svg-logo').style.display='block'"/>
-    <svg id="svg-logo" style="display:none;width:56px;height:56px" viewBox="0 0 48 58" fill="none">
+      onerror="this.style.display='none';document.getElementById('svg-fb').style.display='block'"/>
+    <svg id="svg-fb" style="display:none;width:56px;height:56px" viewBox="0 0 48 58" fill="none">
       <path d="M32 3C38 8,42 19,40 32C38 44,31 52,23 58" stroke="white" stroke-width="2" fill="none" stroke-linecap="round"/>
       <path d="M32 3C36 11,41 24,41 35C41 46,35 54,23 58" stroke="white" stroke-width="2" fill="none" stroke-linecap="round"/>
       <path d="M32 3C34 1.5,37 2,36 5.5" stroke="white" stroke-width="1.5" fill="none" stroke-linecap="round"/>
@@ -172,18 +168,18 @@ body{height:100%;background:#000;display:flex;justify-content:center;align-items
   <div class="hdiv"></div>
   <div class="lang-list">
     <div class="slbl" id="lch">¿Qué idioma practicamos hoy?</div>
-    <div id="lang-cards"></div>
+    <div class="lr" id="lr-de" onclick="pl('de')"><span class="lf">🇩🇪</span><div style="flex:1"><div class="ln">DEUTSCH</div><div class="ls" id="ls-de">Alemán · con Raven</div></div><div class="lck"></div></div>
+    <div class="lr" id="lr-fr" onclick="pl('fr')"><span class="lf">🇫🇷</span><div style="flex:1"><div class="ln">FRANÇAIS</div><div class="ls" id="ls-fr">Francés · avec Baguette</div></div><div class="lck"></div></div>
+    <div class="lr" id="lr-en" onclick="pl('en')"><span class="lf">🇬🇧</span><div style="flex:1"><div class="ln">ENGLISH</div><div class="ls" id="ls-en">Inglés · with Sparrow</div></div><div class="lck"></div></div>
+    <div class="lr" id="lr-es" onclick="pl('es')"><span class="lf">🇪🇸</span><div style="flex:1"><div class="ln">ESPAÑOL</div><div class="ls" id="ls-es">Español · con Paquito</div></div><div class="lck"></div></div>
   </div>
-  <div class="bot">
-    <button class="pill p" id="bs1" onclick="grev()" disabled id="lct">Continuar →</button>
-  </div>
+  <div class="bot"><button class="pill p" id="bs1" onclick="grev()" disabled>Continuar →</button></div>
 </div>
 
-<!-- S2: REVEAL -->
 <div class="scr off" id="s2">
   <div style="height:52px;flex-shrink:0"></div>
   <div class="rv-body">
-    <div id="rv-av-wrap"></div>
+    <div id="rv-av"></div>
     <div class="rv-mt" id="rvm">Te presento a</div>
     <div class="rv-nm" id="rvn">RAVEN</div>
     <div class="rv-bd" id="rvb">Deutsch</div>
@@ -195,15 +191,11 @@ body{height:100%;background:#000;display:flex;justify-content:center;align-items
   </div>
 </div>
 
-<!-- S3: SETUP -->
 <div class="scr off" id="s3">
   <div style="height:52px;flex-shrink:0"></div>
   <div class="s3b">
     <button class="blnk" onclick="ss('s2')">← <span id="lbk">Volver</span></button>
-    <div>
-      <span class="flbl" id="lnf">Nombre</span>
-      <input class="di" type="text" id="un" oninput="cks()" placeholder="Tu nombre..."/>
-    </div>
+    <div><span class="flbl" id="lnf">Nombre</span><input class="di" type="text" id="un" oninput="cks()" placeholder="Tu nombre..."/></div>
     <div>
       <span class="flbl" id="llf">Nivel</span>
       <div class="lopts">
@@ -225,19 +217,20 @@ body{height:100%;background:#000;display:flex;justify-content:center;align-items
   </div>
 </div>
 
-<!-- S4: MAIN -->
 <div class="scr off" id="s4" style="overflow:hidden">
   <div class="s4">
     <div class="tabs">
       <button class="tab a" id="tc" onclick="stab('chat')"><span id="tlc">CONVERSAR</span></button>
       <button class="tab" id="te" onclick="stab('ex')"><span id="tle">EJERCICIOS</span></button>
+      <button class="tab" id="tb" onclick="stab('books')"><span id="tlb">LECTURAS</span></button>
     </div>
+
     <div class="cv" id="vc">
       <div class="ch">
-        <div class="cav" id="chat-av"></div>
+        <div class="cav-wrap" id="chat-av"></div>
         <div class="ci"><h4 id="cnm"></h4><p id="csb"></p></div>
         <span class="lt2 det" id="clv">✨</span>
-        <button class="finbtn" id="finbtn" onclick="endS()">Fin ✓</button>
+        <button class="finbtn" onclick="endS()">Fin ✓</button>
       </div>
       <button class="vb" onclick="goBack()">← <span id="lcb">Configuración</span></button>
       <div class="msgs" id="msgs"></div>
@@ -247,6 +240,7 @@ body{height:100%;background:#000;display:flex;justify-content:center;align-items
         <button class="ibb snd" onclick="snd()"><svg viewBox="0 0 24 24"><path d="M2 21L23 12 2 3v7l15 2-15 2z"/></svg></button>
       </div>
     </div>
+
     <div class="ev" id="ve">
       <button class="vb" onclick="goBack()">← <span id="leb">Configuración</span></button>
       <div id="emenu" class="emenu">
@@ -262,66 +256,63 @@ body{height:100%;background:#000;display:flex;justify-content:center;align-items
         <div id="econt"></div>
       </div>
     </div>
+
+    <div class="ev" id="vb">
+      <button class="vb" onclick="goBack()">← <span id="lebb">Configuración</span></button>
+      <div id="bmenu" class="emenu">
+        <div class="eh" id="lbh">LECTURAS · DOMINIO PÚBLICO</div>
+        <div id="book-list"></div>
+        <div class="legal-note">Todos los textos son obras en dominio público.<br>RAVEN no reproduce traducciones modernas con copyright.</div>
+      </div>
+      <div id="bact" class="eact" style="display:none">
+        <button class="blnk" onclick="bkback()" style="margin-bottom:6px">← <span id="lebb2">Lecturas</span></button>
+        <div class="eld" id="bload">Generando fragmento...</div>
+        <div id="bcont"></div>
+      </div>
+    </div>
   </div>
 </div>
 
 </div>
 <script>
-// All available languages to learn
-const ALL_LANGS={
+const LANGS={
   de:{flag:'🇩🇪',name:'DEUTSCH',comp:'Raven',av:'ravenlogo.jpeg',em:'🐦‍⬛',f:'German',sr:'de-DE'},
   fr:{flag:'🇫🇷',name:'FRANÇAIS',comp:'Baguette',av:'baguette.jpeg',em:'🥖',f:'French',sr:'fr-FR'},
   en:{flag:'🇬🇧',name:'ENGLISH',comp:'Sparrow',av:'sparrow.jpeg',em:'🐦',f:'English',sr:'en-GB'},
   es:{flag:'🇪🇸',name:'ESPAÑOL',comp:'Paquito',av:'paquito.jpeg',em:'🎸',f:'Spanish',sr:'es-ES'}
 };
 
-// UI translations
+const BOOKS=[
+  {id:'alice',title:'Alice in Wonderland',auth:'Lewis Carroll',year:1865},
+  {id:'mirror',title:'Through the Looking-Glass',auth:'Lewis Carroll',year:1871},
+  {id:'grimm',title:'Grimm\'s Fairy Tales',auth:'Brothers Grimm',year:1812},
+  {id:'dracula',title:'Dracula',auth:'Bram Stoker',year:1897},
+  {id:'frank',title:'Frankenstein',auth:'Mary Shelley',year:1818},
+  {id:'holmes',title:'The Adventures of Sherlock Holmes',auth:'Arthur Conan Doyle',year:1892},
+  {id:'dorian',title:'The Picture of Dorian Gray',auth:'Oscar Wilde',year:1890},
+  {id:'timemachine',title:'The Time Machine',auth:'H.G. Wells',year:1895},
+  {id:'warworlds',title:'The War of the Worlds',auth:'H.G. Wells',year:1898},
+  {id:'quijote',title:'Don Quijote de la Mancha',auth:'Miguel de Cervantes',year:1605}
+];
+
 const TR={
-  es:{tg:'Tu compañero de idiomas',lch:'¿Qué idioma practicamos hoy?',lbk:'Volver',lnf:'NOMBRE',llf:'NIVEL',lcf:'CORRECCIONES',lbg:'Principiante',lin:'Intermedio',lav:'Avanzado',lc1:'DURANTE',lc1s:'Al instante',lc2:'AL FINAL',lc2s:'Flujo natural',det:'✨ detectando...',ph:'Escribe aquí...',pn:'Tu nombre...',tlc:'CONVERSAR',tle:'EJERCICIOS',lcb:'Configuración',leb:'Configuración',leh:'EJERCICIOS',evt:'VOCABULARIO',evd:'Traduce palabras y frases',egt:'GRAMÁTICA',egd:'Completa la oración',est:'SITUACIONES',esd:'¿Cómo dirías esto?',elt:'ESCUCHA',eld:'Escucha y escribe',leb2:'Ejercicios',next:'SIGUIENTE →',cont:'Continuar →',start:'Comenzar →',chLang:'← Cambiar idioma',rvm:'Te presento a',
+  es:{tg:'Tu compañero de idiomas',lch:'¿Qué idioma practicamos hoy?',ldes:'Alemán · con Raven',lfrs:'Francés · avec Baguette',lens:'Inglés · with Sparrow',less:'Español · con Paquito',lbk:'Volver',lnf:'NOMBRE',llf:'NIVEL',lcf:'CORRECCIONES',lbg:'Principiante',lin:'Intermedio',lav:'Avanzado',lc1:'DURANTE',lc1s:'Al instante',lc2:'AL FINAL',lc2s:'Flujo natural',det:'✨ detectando...',ph:'Escribe aquí...',pn:'Tu nombre...',tlc:'CONVERSAR',tle:'EJERCICIOS',tlb:'LECTURAS',lcb:'Configuración',leb:'Configuración',lebb:'Configuración',leh:'EJERCICIOS',evt:'VOCABULARIO',evd:'Traduce palabras y frases',egt:'GRAMÁTICA',egd:'Completa la oración',est:'SITUACIONES',esd:'¿Cómo dirías esto?',elt:'ESCUCHA',eld:'Escucha y escribe',leb2:'Ejercicios',lebb2:'Lecturas',lbh:'LECTURAS · DOMINIO PÚBLICO',next:'SIGUIENTE →',cont:'Continuar →',start:'Comenzar →',chLang:'← Cambiar idioma',rvm:'Te presento a',
     rv:{de:{d:'Tu compañera de alemán. Elegante, seria y siempre lista.'},fr:{d:'Tu compañero de francés. Simpático, expresivo y siempre contento.'},en:{d:'Tu compañero de inglés. Amigable, dinámico y moderno.'},es:{d:'Tu compañero de español. Cercano, animado y con mucho sabor.'}}},
-  en:{tg:'Your language companion',lch:'What language are we learning today?',lbk:'Back',lnf:'NAME',llf:'LEVEL',lcf:'CORRECTIONS',lbg:'Beginner',lin:'Intermediate',lav:'Advanced',lc1:'AS I GO',lc1s:'Instant',lc2:'AT THE END',lc2s:'Natural flow',det:'✨ detecting...',ph:'Type here...',pn:'Your name...',tlc:'CHAT',tle:'EXERCISES',lcb:'Settings',leb:'Settings',leh:'EXERCISES',evt:'VOCABULARY',evd:'Translate words and phrases',egt:'GRAMMAR',egd:'Complete the sentence',est:'SITUATIONS',esd:'How would you say this?',elt:'LISTENING',eld:'Listen and write',leb2:'Exercises',next:'NEXT →',cont:'Continue →',start:'Start →',chLang:'← Change language',rvm:'Meet your companion',
-    rv:{de:{d:'Your German companion. Elegant, serious and always ready.'},fr:{d:'Your French companion. Fun, expressive and always happy.'},en:{d:'Your English companion. Friendly, dynamic and modern.'},es:{d:'Your Spanish companion. Warm, lively and full of character.'}}},
-  de:{tg:'Dein Sprachbegleiter',lch:'Welche Sprache üben wir heute?',lbk:'Zurück',lnf:'NAME',llf:'NIVEAU',lcf:'KORREKTUREN',lbg:'Anfänger',lin:'Mittelstufe',lav:'Fortgeschritten',lc1:'SOFORT',lc1s:'Direkt',lc2:'AM ENDE',lc2s:'Natürlich',det:'✨ erkenne...',ph:'Schreib hier...',pn:'Dein Name...',tlc:'GESPRÄCH',tle:'ÜBUNGEN',lcb:'Einstellungen',leb:'Einstellungen',leh:'ÜBUNGEN',evt:'VOKABULAR',evd:'Wörter übersetzen',egt:'GRAMMATIK',egd:'Satz vervollständigen',est:'SITUATIONEN',esd:'Wie sagst du das?',elt:'HÖREN',eld:'Hören & schreiben',leb2:'Übungen',next:'WEITER →',cont:'Weiter →',start:'Starten →',chLang:'← Sprache ändern',rvm:'Dein Begleiter',
-    rv:{de:{d:'Deine elegante Deutschbegleiterin. Immer bereit.'},fr:{d:'Dein Französischbegleiter. Lustig und ausdrucksstark.'},en:{d:'Dein Englischbegleiter. Freundlich und modern.'},es:{d:'Dein Spanischbegleiter. Lebendig und herzlich.'}}},
-  fr:{tg:'Ton compagnon de langues',lch:"Quelle langue on apprend aujourd'hui?",lbk:'Retour',lnf:'PRÉNOM',llf:'NIVEAU',lcf:'CORRECTIONS',lbg:'Débutant',lin:'Intermédiaire',lav:'Avancé',lc1:'PENDANT',lc1s:'Immédiat',lc2:'À LA FIN',lc2s:'Flux naturel',det:'✨ détection...',ph:'Écris ici...',pn:'Ton prénom...',tlc:'CONVERSATION',tle:'EXERCICES',lcb:'Paramètres',leb:'Paramètres',leh:'EXERCICES',evt:'VOCABULAIRE',evd:'Traduire des mots',egt:'GRAMMAIRE',egd:'Compléter la phrase',est:'SITUATIONS',esd:'Comment dirais-tu ça?',elt:'ÉCOUTE',eld:'Écouter & écrire',leb2:'Exercices',next:'SUIVANT →',cont:'Continuer →',start:'Commencer →',chLang:'← Changer',rvm:'Rencontre ton compagnon',
-    rv:{de:{d:'Ton compagnon allemand. Élégant et toujours prêt.'},fr:{d:'Ton compagnon français. Sympa et expressif.'},en:{d:"Ton compagnon anglais. Sympa et moderne."},es:{d:'Ton compagnon espagnol. Chaleureux et plein de vie.'}}}
+  en:{tg:'Your language companion',lch:'What language are we learning today?',ldes:'German · with Raven',lfrs:'French · avec Baguette',lens:'English · with Sparrow',less:'Spanish · with Paquito',lbk:'Back',lnf:'NAME',llf:'LEVEL',lcf:'CORRECTIONS',lbg:'Beginner',lin:'Intermediate',lav:'Advanced',lc1:'AS I GO',lc1s:'Instant',lc2:'AT THE END',lc2s:'Natural flow',det:'✨ detecting...',ph:'Type here...',pn:'Your name...',tlc:'CHAT',tle:'EXERCISES',tlb:'READINGS',lcb:'Settings',leb:'Settings',lebb:'Settings',leh:'EXERCISES',evt:'VOCABULARY',evd:'Translate words',egt:'GRAMMAR',egd:'Complete the sentence',est:'SITUATIONS',esd:'How would you say this?',elt:'LISTENING',eld:'Listen and write',leb2:'Exercises',lebb2:'Readings',lbh:'READINGS · PUBLIC DOMAIN',next:'NEXT →',cont:'Continue →',start:'Start →',chLang:'← Change language',rvm:'Meet your companion',
+    rv:{de:{d:'Your German companion. Elegant and always ready.'},fr:{d:'Your French companion. Fun and expressive.'},en:{d:'Your English companion. Friendly and modern.'},es:{d:'Your Spanish companion. Warm and lively.'}}},
+  de:{tg:'Dein Sprachbegleiter',lch:'Welche Sprache üben wir heute?',ldes:'Deutsch · mit Raven',lfrs:'Französisch · avec Baguette',lens:'Englisch · with Sparrow',less:'Spanisch · con Paquito',lbk:'Zurück',lnf:'NAME',llf:'NIVEAU',lcf:'KORREKTUREN',lbg:'Anfänger',lin:'Mittelstufe',lav:'Fortgeschritten',lc1:'SOFORT',lc1s:'Direkt',lc2:'AM ENDE',lc2s:'Natürlich',det:'✨ erkenne...',ph:'Schreib hier...',pn:'Dein Name...',tlc:'GESPRÄCH',tle:'ÜBUNGEN',tlb:'LEKTÜREN',lcb:'Einstellungen',leb:'Einstellungen',lebb:'Einstellungen',leh:'ÜBUNGEN',evt:'VOKABULAR',evd:'Wörter übersetzen',egt:'GRAMMATIK',egd:'Satz vervollständigen',est:'SITUATIONEN',esd:'Wie sagst du das?',elt:'HÖREN',eld:'Hören & schreiben',leb2:'Übungen',lebb2:'Lektüren',lbh:'LEKTÜREN · GEMEINFREIHEIT',next:'WEITER →',cont:'Weiter →',start:'Starten →',chLang:'← Sprache ändern',rvm:'Dein Begleiter',
+    rv:{de:{d:'Deine elegante Deutschbegleiterin.'},fr:{d:'Dein Französischbegleiter.'},en:{d:'Dein Englischbegleiter.'},es:{d:'Dein Spanischbegleiter.'}}},
+  fr:{tg:'Ton compagnon de langues',lch:"Quelle langue on apprend aujourd'hui?",ldes:'Allemand · mit Raven',lfrs:'Français · avec Baguette',lens:'Anglais · with Sparrow',less:'Espagnol · con Paquito',lbk:'Retour',lnf:'PRÉNOM',llf:'NIVEAU',lcf:'CORRECTIONS',lbg:'Débutant',lin:'Intermédiaire',lav:'Avancé',lc1:'PENDANT',lc1s:'Immédiat',lc2:'À LA FIN',lc2s:'Flux naturel',det:'✨ détection...',ph:'Écris ici...',pn:'Ton prénom...',tlc:'CONVERSATION',tle:'EXERCICES',tlb:'LECTURES',lcb:'Paramètres',leb:'Paramètres',lebb:'Paramètres',leh:'EXERCICES',evt:'VOCABULAIRE',evd:'Traduire des mots',egt:'GRAMMAIRE',egd:'Compléter la phrase',est:'SITUATIONS',esd:'Comment dirais-tu ça?',elt:'ÉCOUTE',eld:'Écouter & écrire',leb2:'Exercices',lebb2:'Lectures',lbh:'LECTURES · DOMAINE PUBLIC',next:'SUIVANT →',cont:'Continuer →',start:'Commencer →',chLang:'← Changer',rvm:'Rencontre ton compagnon',
+    rv:{de:{d:'Ton compagnon allemand.'},fr:{d:'Ton compagnon français.'},en:{d:'Ton compagnon anglais.'},es:{d:'Ton compagnon espagnol.'}}}
 };
 
 let ul='es',tl='',lv='auto',cm='end',un2='',dlv=null,dm=0;
 const hists={de:[],fr:[],en:[],es:[]};
 
-function getLangs(){
-  // Return all languages EXCEPT the current UI language
-  return Object.keys(ALL_LANGS).filter(k=>k!==ul);
-}
-
-function renderLangCards(){
-  const container=document.getElementById('lang-cards');
-  const t=TR[ul];
-  const langs=getLangs();
-  const subLabels={
-    es:{de:'Alemán',fr:'Francés',en:'Inglés'},
-    en:{de:'German',fr:'French',es:'Spanish'},
-    de:{fr:'Französisch',en:'Englisch',es:'Spanisch'},
-    fr:{de:'Allemand',en:'Anglais',es:'Espagnol'}
-  };
-  container.innerHTML=langs.map(k=>{
-    const L=ALL_LANGS[k];
-    const sub=(subLabels[ul]&&subLabels[ul][k])||L.name;
-    return `<div class="lr${tl===k?' sel':''}" id="lr-${k}" onclick="pl('${k}')">
-      <span class="lf">${L.flag}</span>
-      <div style="flex:1">
-        <div class="ln">${L.name}</div>
-        <div class="ls">${sub} · con ${L.comp}</div>
-      </div>
-      <div class="lck"></div>
-    </div>`;
-  }).join('');
-}
-
 function atr(){
   const t=TR[ul];
-  const ids={tg:'tg',lch:'lch',lbk:'lbk',lnf:'lnf',llf:'llf',lcf:'lcf',lbg:'lbg',lin:'lin',lav:'lav',lc1:'lc1',lc1s:'lc1s',lc2:'lc2',lc2s:'lc2s',tlc:'tlc',tle:'tle',lcb:'lcb',leb:'leb',leh:'leh',evt:'evt',evd:'evd',egt:'egt',egd:'egd',est:'est',esd:'esd',elt:'elt',eld:'eld',leb2:'leb2',rvm:'rvm'};
+  const ids={tg:'tg',lch:'lch',lbk:'lbk',lnf:'lnf',llf:'llf',lcf:'lcf',lbg:'lbg',lin:'lin',lav:'lav',lc1:'lc1',lc1s:'lc1s',lc2:'lc2',lc2s:'lc2s',tlc:'tlc',tle:'tle',tlb:'tlb',lcb:'lcb',leb:'leb',lebb:'lebb',leh:'leh',evt:'evt',evd:'evd',egt:'egt',egd:'egd',est:'est',esd:'esd',elt:'elt',eld:'eld',leb2:'leb2',lebb2:'lebb2',lbh:'lbh',rvm:'rvm',
+    'ls-de':'ldes','ls-fr':'lfrs','ls-en':'lens','ls-es':'less'};
   for(const[id,k]of Object.entries(ids)){const el=document.getElementById(id);if(el)el.textContent=t[k];}
   document.getElementById('ci2').placeholder=t.ph;
   document.getElementById('un').placeholder=t.pn;
@@ -330,54 +321,38 @@ function atr(){
   document.getElementById('bs2b').textContent=t.chLang;
   document.getElementById('bst').textContent=t.start;
   const lvt=document.getElementById('clv');if(lvt&&lvt.classList.contains('det'))lvt.textContent=t.det;
-  ual();
-  renderLangCards();
-  if(tl)urv();
+  ual();renderBooks();if(tl)urv();
 }
 
 function ual(){
-  const n=tl?ALL_LANGS[tl].comp:'RAVEN';
+  const n=tl?LANGS[tl].comp:'RAVEN';
   const lb={es:`${n} lo detecta`,en:`${n} detects it`,de:`${n} erkennt es`,fr:`${n} le détecte`};
   document.getElementById('lau').textContent=lb[ul]||`${n} lo detecta`;
 }
 
 function tfl(){document.getElementById('fm').classList.toggle('open');}
 document.addEventListener('click',e=>{if(!e.target.closest('.flag-area'))document.getElementById('fm').classList.remove('open');});
-
-function sui(l,el,f,c){
-  ul=l;
-  document.getElementById('fi').textContent=f;
-  document.getElementById('fc').textContent=c;
-  document.querySelectorAll('.fo').forEach(b=>b.classList.remove('a'));
-  el.classList.add('a');
-  document.getElementById('fm').classList.remove('open');
-  // If selected learn lang is now same as UI lang, reset
-  if(tl===ul){tl='';document.getElementById('bs1').disabled=true;}
-  atr();
-}
-
+function sui(l,el,f,c){ul=l;document.getElementById('fi').textContent=f;document.getElementById('fc').textContent=c;document.querySelectorAll('.fo').forEach(b=>b.classList.remove('a'));el.classList.add('a');document.getElementById('fm').classList.remove('open');atr();}
 function ss(id){['s1','s2','s3','s4'].forEach(s=>{const el=document.getElementById(s);if(el)el.classList.toggle('off',s!==id);});}
 
 function pl(l){
   tl=l;
-  renderLangCards();
+  ['de','fr','en','es'].forEach(x=>document.getElementById('lr-'+x).classList.toggle('sel',x===l));
   document.getElementById('bs1').disabled=false;
   ual();
 }
 
-function avImg(lang,size,cls){
-  const L=ALL_LANGS[lang];
-  const sz=size||56;
-  return `<img src="${L.av}" style="width:${sz}px;height:${sz}px;border-radius:50%;object-fit:cover" class="${cls||''}"
-    onerror="this.outerHTML='<span style=\\'font-size:${Math.round(sz*.55)}px\\'>${L.em}</span>'"/>`;
+function avEl(lang,size){
+  const L=LANGS[lang];const sz=size||56;
+  return `<img src="${L.av}" style="width:${sz}px;height:${sz}px;border-radius:50%;object-fit:cover;border:2px solid #2a2a2a" onerror="this.outerHTML='<span style=\\'font-size:${Math.round(sz*.55)}px\\'>${L.em}</span>'"/>`;
 }
 
 function urv(){
   if(!tl)return;
-  const t=TR[ul];const L=ALL_LANGS[tl];
-  document.getElementById('rv-av-wrap').innerHTML=avImg(tl,84);
+  const t=TR[ul];const L=LANGS[tl];
+  document.getElementById('rv-av').innerHTML=avEl(tl,88);
   document.getElementById('rvn').textContent=L.comp.toUpperCase();
-  document.getElementById('rvb').textContent=L.name;
+  document.getElementById('rvb').textContent={de:'Deutsch',fr:'Français',en:'English',es:'Español'}[tl];
   document.getElementById('rvd').textContent=t.rv[tl]?.d||'';
   document.getElementById('rvm').textContent=t.rvm;
 }
@@ -391,10 +366,9 @@ function goBack(){ss('s3');ual();}
 
 function sma(){
   ss('s4');stab('chat');
-  const L=ALL_LANGS[tl];
+  const L=LANGS[tl];
   dlv=lv==='auto'?null:lv;dm=0;
-  // Avatar in chat header
-  document.getElementById('chat-av').innerHTML=avImg(tl,32);
+  document.getElementById('chat-av').innerHTML=avEl(tl,32);
   document.getElementById('cnm').textContent=L.comp;
   document.getElementById('csb').textContent={de:'Deine Deutschbegleiterin',fr:'Ton compagnon français',en:'Your English companion',es:'Tu compañero de español'}[tl]||'';
   const tag=document.getElementById('clv');
@@ -404,25 +378,29 @@ function sma(){
   if(hists[tl].length>0){
     hists[tl].forEach(m=>{if(m.role==='assistant')ab(m.content);else if(m.role==='user')au(m.content);});
   } else {
-    const n=L.comp;
     const G={
-      de:{auto:`Hallo ${un2}! Ich bin Raven 🐦‍⬛ Schön, dich kennenzulernen! Was machst du so?`,beginner:`Hallo ${un2}! Ich bin Raven. Wie geht es dir heute?`,intermediate:`Hallo ${un2}! Ich bin Raven. Worüber möchtest du heute sprechen?`,advanced:`Hallo ${un2}! Was beschäftigt dich gerade?`},
-      fr:{auto:`Bonjour ${un2}! Je suis Baguette 🥖 Enchanté! Qu'est-ce que tu fais dans la vie?`,beginner:`Bonjour ${un2}! Je m'appelle Baguette. Comment vas-tu?`,intermediate:`Bonjour ${un2}! De quoi veux-tu parler aujourd'hui?`,advanced:`Bonjour ${un2}! Qu'est-ce qui t'intéresse en ce moment?`},
-      en:{auto:`Hey ${un2}! I'm Sparrow 🐦 So lovely to meet you! What do you get up to?`,beginner:`Hey ${un2}! I'm Sparrow. How are you doing today?`,intermediate:`Hey ${un2}! What would you like to chat about?`,advanced:`Hello ${un2}! What's on your mind today?`},
+      de:{auto:`Hallo ${un2}! Ich bin Raven 🐦‍⬛ Schön, dich kennenzulernen! Was machst du so?`,beginner:`Hallo ${un2}! Ich bin Raven. Wie geht es dir heute?`,intermediate:`Hallo ${un2}! Ich bin Raven. Worüber möchtest du sprechen?`,advanced:`Hallo ${un2}! Was beschäftigt dich gerade?`},
+      fr:{auto:`Bonjour ${un2}! Je suis Baguette 🥖 Enchanté! Qu'est-ce que tu fais dans la vie?`,beginner:`Bonjour ${un2}! Je m'appelle Baguette. Comment vas-tu?`,intermediate:`Bonjour ${un2}! De quoi veux-tu parler?`,advanced:`Bonjour ${un2}! Qu'est-ce qui t'intéresse?`},
+      en:{auto:`Hey ${un2}! I'm Sparrow 🐦 So lovely to meet you! What do you get up to?`,beginner:`Hey ${un2}! I'm Sparrow. How are you doing today?`,intermediate:`Hey ${un2}! I'm Sparrow. What would you like to chat about?`,advanced:`Hello ${un2}! What's on your mind?`},
       es:{auto:`¡Hola ${un2}! Soy Paquito 🎸 ¡Qué alegría conocerte! ¿De dónde eres?`,beginner:`¡Hola ${un2}! Soy Paquito. ¿Cómo estás hoy?`,intermediate:`¡Hola ${un2}! ¿De qué quieres hablar hoy?`,advanced:`¡Hola ${un2}! ¿Qué te ronda por la cabeza?`}
     };
-    const k=lv==='auto'?'auto':lv;
-    const g=G[tl]?.[k]||`Hola ${un2}!`;
+    const k=lv==='auto'?'auto':lv;const g=G[tl]?.[k]||`¡Hola ${un2}!`;
     ab(g);hists[tl].push({role:'assistant',content:g});
   }
 }
 
 function stab(t){
+  ['chat','ex','books'].forEach(x=>{
+    document.getElementById('t'+x[0]).classList.toggle('a',x===t);
+  });
   document.getElementById('tc').classList.toggle('a',t==='chat');
   document.getElementById('te').classList.toggle('a',t==='ex');
+  document.getElementById('tb').classList.toggle('a',t==='books');
   document.getElementById('vc').style.display=t==='chat'?'flex':'none';
-  const ve=document.getElementById('ve');ve.style.display=t==='ex'?'flex':'none';
+  document.getElementById('ve').style.display=t==='ex'?'flex':'none';
+  document.getElementById('vb').style.display=t==='books'?'flex':'none';
   if(t==='ex'){document.getElementById('emenu').style.display='flex';document.getElementById('eact').style.display='none';}
+  if(t==='books'){document.getElementById('bmenu').style.display='flex';document.getElementById('bact').style.display='none';}
 }
 
 function ab(tx){const m=document.getElementById('msgs');const d=document.createElement('div');d.className='b bot';d.textContent=tx;m.appendChild(d);m.scrollTop=m.scrollHeight;}
@@ -431,16 +409,16 @@ function sht(){const m=document.getElementById('msgs');const d=document.createEl
 function hdt(){const t=document.getElementById('ty');if(t)t.remove();}
 
 function bsys(){
-  const L=ALL_LANGS[tl];
-  const li=dlv?({beginner:'Use very simple vocabulary and short sentences. Be patient and encouraging.',intermediate:'Use natural vocabulary. Introduce new words in context.',advanced:'Speak naturally with idiomatic expressions.'}[dlv]):'Start naturally. After 4 exchanges silently assess level from vocabulary/grammar/fluency and adapt. Never mention assessing.';
-  const ci=cm==='inline'?'Correct errors gently inline using ✏️ (correct form) then continue.':'Do NOT correct during conversation. Just respond naturally.';
-  return `You are ${L.comp}, a warm and witty ${L.f} language companion in the RAVEN app.\nUser: ${un2}.\n- Respond ONLY in ${L.f}\n- Level: ${li}\n- Corrections: ${ci}\n- Style: conversational, max 3 sentences, always ask a follow-up question.`;
+  const L=LANGS[tl];
+  const li=dlv?({beginner:'Use very simple vocabulary, short sentences, be patient.',intermediate:'Natural vocabulary, introduce new words in context.',advanced:'Natural speech with idiomatic expressions.'}[dlv]):'Start naturally. After 4 exchanges silently assess level from vocabulary/grammar and adapt. Never mention assessing.';
+  const ci=cm==='inline'?'Correct errors gently with ✏️ (correct form) then continue.':'Do NOT correct during conversation.';
+  return `You are ${L.comp}, a warm ${L.f} language companion in RAVEN app. User: ${un2}. Respond ONLY in ${L.f}. Level: ${li} Corrections: ${ci} Style: max 3 sentences, ask follow-up question.`;
 }
 
 async function callAPI(messages,system){
   const r=await fetch('/.netlify/functions/chat',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({messages,system})});
   const text=await r.text();
-  try{return JSON.parse(text);}catch(e){throw new Error(text.substring(0,200));}
+  try{return JSON.parse(text);}catch(e){throw new Error(text.substring(0,300));}
 }
 
 async function snd(){
@@ -456,8 +434,8 @@ async function snd(){
 
 async function adt(){
   try{
-    const L=ALL_LANGS[tl];
-    const d=await callAPI(hists[tl].filter(m=>m.role==='user'),`Analyze these ${L.f} messages. ONE word only: "beginner", "intermediate", or "advanced".`);
+    const L=LANGS[tl];
+    const d=await callAPI(hists[tl].filter(m=>m.role==='user'),`Analyze these ${L.f} messages. ONE word: "beginner", "intermediate", or "advanced".`);
     const raw=(d.content?.[0]?.text||'').toLowerCase();
     const lv2=raw.includes('beginner')?'beginner':raw.includes('advanced')?'advanced':'intermediate';
     dlv=lv2;const tag=document.getElementById('clv');
@@ -467,8 +445,7 @@ async function adt(){
 
 async function endS(){
   if(hists[tl].length<2)return;sht();
-  const L=ALL_LANGS[tl];
-  const ol={es:'Spanish',en:'English',de:'German',fr:'French'}[ul]||'Spanish';
+  const L=LANGS[tl];const ol={es:'Spanish',en:'English',de:'German',fr:'French'}[ul]||'Spanish';
   try{
     const d=await callAPI([...hists[tl],{role:'user',content:'End session feedback.'}],`You are ${L.comp}. Summarize this ${L.f} session for ${un2} in ${ol}. 1) Warm closing. 2) Up to 4 errors: ❌ wrong → ✅ correct + reason. 3) One strength. 4) One tip. Short and encouraging.`);
     hdt();const fb=d.content?.[0]?.text||'';
@@ -479,24 +456,24 @@ async function endS(){
   }catch(e){hdt();}
 }
 
+// EXERCISES
 let cex=null;
 function bex(){document.getElementById('emenu').style.display='flex';document.getElementById('eact').style.display='none';}
-
 async function sex(tp){
   document.getElementById('emenu').style.display='none';
   const ea=document.getElementById('eact');ea.style.display='flex';
   const el=document.getElementById('eload');el.style.display='block';el.textContent='Generando...';
   document.getElementById('econt').innerHTML='';
-  const L=ALL_LANGS[tl];const lv2=dlv||lv||'intermediate';
+  const L=LANGS[tl];const lv2=dlv||lv||'intermediate';
   const ul2={es:'Spanish',en:'English',de:'German',fr:'French'}[ul]||'Spanish';
   const P={
-    vocab:`${L.f} vocabulary MCQ for CEFR ${lv2}. Return JSON only, no markdown: {"type":"mcq","question":"Translate to ${L.f}: [common ${ul2} word]","options":["a","b","c","d"],"correct":0,"explanation":"brief note in ${ul2}"}`,
-    grammar:`${L.f} grammar MCQ for CEFR ${lv2}. JSON only: {"type":"mcq","question":"[${L.f} sentence with ___]","options":["a","b","c","d"],"correct":0,"explanation":"grammar rule in ${ul2}"}`,
-    situation:`Real-life ${L.f} situation for CEFR ${lv2}. JSON only: {"type":"open","question":"[context in ${ul2}]: Say in ${L.f}: '[phrase]'?","answer":"[correct ${L.f}]","explanation":"note in ${ul2}"}`,
-    listen:`${L.f} dictation for CEFR ${lv2}. JSON only: {"type":"listen","sentence":"[short natural ${L.f} sentence]","translation":"[${ul2}]"}`
+    vocab:`${L.f} vocabulary MCQ for CEFR ${lv2}. JSON only: {"type":"mcq","question":"Translate to ${L.f}: [${ul2} word]","options":["a","b","c","d"],"correct":0,"explanation":"note in ${ul2}"}`,
+    grammar:`${L.f} grammar MCQ for CEFR ${lv2}. JSON only: {"type":"mcq","question":"[${L.f} sentence with ___]","options":["a","b","c","d"],"correct":0,"explanation":"rule in ${ul2}"}`,
+    situation:`Real-life ${L.f} for CEFR ${lv2}. JSON only: {"type":"open","question":"[context in ${ul2}]: Say in ${L.f}: '[phrase]'?","answer":"[${L.f}]","explanation":"note in ${ul2}"}`,
+    listen:`${L.f} dictation for CEFR ${lv2}. JSON only: {"type":"listen","sentence":"[short ${L.f} sentence]","translation":"[${ul2}]"}`
   };
   try{
-    const d=await callAPI([{role:'user',content:P[tp]}],'You are a language exercise generator. Return JSON only, absolutely no markdown fences.');
+    const d=await callAPI([{role:'user',content:P[tp]}],'Language exercise generator. Return JSON only, no markdown.');
     if(d.error){el.textContent='Error: '+(d.error.message||d.error);return;}
     let raw=(d.content?.[0]?.text||'{}').replace(/```json\s*|```/gi,'').trim();
     cex=JSON.parse(raw);cex.tp=tp;el.style.display='none';rex(cex);
@@ -514,14 +491,62 @@ function rex(ex){
     cont.innerHTML=`<div class="eq">${ex.question}</div><div class="eir"><input class="eti" type="text" id="eoi" placeholder="..." onkeydown="if(event.key==='Enter')dop()"/><button class="ego" onclick="dop()">→</button></div><div class="efb" id="efb"></div><button class="enx" id="enx" onclick="sex('${ex.tp}')">${t.next}</button>`;
   }else if(ex.type==='listen'){
     const hv='speechSynthesis' in window;
-    cont.innerHTML=`<div class="eq" style="text-align:center;padding:20px 0">${hv?`<button onclick="dsp()" style="background:#1a1428;border:1.5px solid #7B5FCC55;border-radius:10px;padding:12px 22px;color:#9B6FFF;cursor:pointer;font-size:14px">🔊 Escuchar</button>`:`<p style="color:#ddd">${ex.sentence}</p>`}</div><div class="eir"><input class="eti" type="text" id="eoi" placeholder="..." onkeydown="if(event.key==='Enter')dls()"/><button class="ego" onclick="dls()">→</button></div><div class="efb" id="efb"></div><button class="enx" id="enx" onclick="sex('${ex.tp}')">${t.next}</button>`;
+    cont.innerHTML=`<div class="eq" style="text-align:center;padding:18px 0">${hv?`<button onclick="dsp()" style="background:#1a1428;border:1.5px solid #7B5FCC55;border-radius:10px;padding:11px 20px;color:#9B6FFF;cursor:pointer;font-size:14px">🔊 Escuchar</button>`:`<p style="color:#ddd">${ex.sentence}</p>`}</div><div class="eir"><input class="eti" type="text" id="eoi" placeholder="..." onkeydown="if(event.key==='Enter')dls()"/><button class="ego" onclick="dls()">→</button></div><div class="efb" id="efb"></div><button class="enx" id="enx" onclick="sex('${ex.tp}')">${t.next}</button>`;
   }
 }
-
 function dmc(i){document.querySelectorAll('.eo').forEach((o,j)=>{o.disabled=true;if(j===cex.correct)o.classList.add('ok');else if(j===i&&i!==cex.correct)o.classList.add('bad');});const fb=document.getElementById('efb');fb.textContent=(i===cex.correct?'✓ ':'✗ ')+cex.explanation;fb.style.display='block';document.getElementById('enx').style.display='block';}
 function dop(){const v=document.getElementById('eoi').value.trim();if(!v)return;document.getElementById('eoi').disabled=true;const fb=document.getElementById('efb');fb.innerHTML=`✅ <strong>${cex.answer}</strong><br>${cex.explanation}`;fb.style.display='block';document.getElementById('enx').style.display='block';}
 function dls(){const v=document.getElementById('eoi').value.trim();if(!v)return;document.getElementById('eoi').disabled=true;const fb=document.getElementById('efb');fb.innerHTML=`<strong>${cex.sentence}</strong><br><span style="color:#888">${cex.translation}</span>`;fb.style.display='block';document.getElementById('enx').style.display='block';}
-function dsp(){const u=new SpeechSynthesisUtterance(cex.sentence);u.lang=ALL_LANGS[tl].sr;u.rate=.85;speechSynthesis.speak(u);}
+function dsp(){const u=new SpeechSynthesisUtterance(cex.sentence);u.lang=LANGS[tl].sr;u.rate=.85;speechSynthesis.speak(u);}
+
+// BOOKS
+function renderBooks(){
+  const L=LANGS[tl]||LANGS.en;
+  const container=document.getElementById('book-list');
+  container.innerHTML=BOOKS.map(b=>`<div class="book-item" onclick="startBook('${b.id}')">
+    📖 <strong>${b.title}</strong><br>
+    <span style="font-size:11px;color:#888">${b.auth} · ${b.year}</span>
+  </div>`).join('');
+}
+
+async function startBook(bookId){
+  document.getElementById('bmenu').style.display='none';
+  const ba=document.getElementById('bact');ba.style.display='flex';
+  const bl=document.getElementById('bload');bl.style.display='block';bl.textContent='Generando fragmento...';
+  document.getElementById('bcont').innerHTML='';
+  const book=BOOKS.find(b=>b.id===bookId);
+  const L=LANGS[tl];const ul2={es:'Spanish',en:'English',de:'German',fr:'French'}[ul]||'Spanish';
+  const lv2=dlv||lv||'intermediate';
+  const prompt=`Take a short passage (3-5 sentences) from "${book.title}" by ${book.auth} (public domain, original published ${book.year}) and adapt it to ${L.f} for a ${lv2} language learner.
+Return JSON only: {"original":"[original passage in English or original language]","translated":"[${L.f} version adapted for ${lv2} level]","vocabulary":[{"word":"key ${L.f} word","meaning":"meaning in ${ul2}"}],"question":"[comprehension question in ${ul2} about the passage]","answer":"[answer in ${L.f}]"}`;
+  try{
+    const d=await callAPI([{role:'user',content:prompt}],'You are a literary language learning assistant. Return JSON only, no markdown.');
+    if(d.error){bl.textContent='Error: '+(d.error.message||d.error);return;}
+    let raw=(d.content?.[0]?.text||'{}').replace(/```json\s*|```/gi,'').trim();
+    const bk=JSON.parse(raw);bl.style.display='none';
+    const t=TR[ul];
+    document.getElementById('bcont').innerHTML=`
+      <div class="eq" style="font-style:italic;color:#aaa;font-size:12px;margin-bottom:8px">"${book.title}" — ${book.auth}</div>
+      <div class="eq" style="margin-bottom:10px"><strong style="font-size:11px;color:#9B6FFF;display:block;margin-bottom:6px">${L.f.toUpperCase()}</strong>${bk.translated}</div>
+      ${bk.vocabulary?.length?`<div class="efb" style="display:block;margin-bottom:10px"><strong style="font-size:11px;color:#888;display:block;margin-bottom:6px">📝 VOCABULARIO</strong>${bk.vocabulary.map(v=>`<div style="margin-bottom:4px"><span style="color:#9B6FFF">${v.word}</span> — ${v.meaning}</div>`).join('')}</div>`:''}
+      <div class="eq" style="margin-bottom:10px"><strong style="font-size:11px;color:#888;display:block;margin-bottom:6px">❓ COMPRENSIÓN</strong>${bk.question}</div>
+      <div class="eir"><input class="eti" type="text" id="boi" placeholder="..." onkeydown="if(event.key==='Enter')checkBook('${bk.answer.replace(/'/g,"\\'")}')"/><button class="ego" onclick="checkBook('${bk.answer.replace(/'/g,"\\'")}')">→</button></div>
+      <div class="efb" id="bfb"></div>
+      <button class="enx" id="bnx" onclick="startBook('${bookId}')" style="display:none">${t.next}</button>
+      <div class="legal-note">Texto basado en obra de dominio público (${book.year}). No se reproducen traducciones modernas con copyright.</div>
+    `;
+  }catch(e){bl.textContent='Error: '+e.message;}
+}
+
+function checkBook(ans){
+  const v=document.getElementById('boi').value.trim();if(!v)return;
+  document.getElementById('boi').disabled=true;
+  const fb=document.getElementById('bfb');
+  fb.innerHTML=`✅ <strong>${ans}</strong>`;fb.style.display='block';
+  document.getElementById('bnx').style.display='block';
+}
+
+function bkback(){document.getElementById('bmenu').style.display='flex';document.getElementById('bact').style.display='none';}
 
 let rec=null,isr=false;
 function tmc(){
@@ -529,7 +554,7 @@ function tmc(){
   const btn=document.getElementById('mb');
   if(isr){rec.stop();return;}
   const SR=window.SpeechRecognition||window.webkitSpeechRecognition;
-  rec=new SR();rec.lang=ALL_LANGS[tl]?.sr||'en-US';
+  rec=new SR();rec.lang=LANGS[tl]?.sr||'en-US';
   rec.onstart=()=>{isr=true;btn.classList.add('rec');};
   rec.onend=()=>{isr=false;btn.classList.remove('rec');};
   rec.onresult=e=>{document.getElementById('ci2').value=e.results[0][0].transcript;snd();};
